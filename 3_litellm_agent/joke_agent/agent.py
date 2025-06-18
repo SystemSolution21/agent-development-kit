@@ -24,7 +24,6 @@ model = LiteLlm(
 # Setup ollama model
 model = LiteLlm(
     model="ollama_chat/llama3.2:3b",
-    api_key=os.getenv(key="OLLAMA_API_KEY"),
 )
 
 
