@@ -92,3 +92,7 @@ Build sophisticated agents that can iteratively refine their outputs through fee
 For more detailed information, check out the official ADK documentation:
 
 - <https://google.github.io/adk-docs/get-started/quickstart>
+
+## Project Reference
+
+<https://github.com/bhancockio/agent-development-kit-crash-course>
