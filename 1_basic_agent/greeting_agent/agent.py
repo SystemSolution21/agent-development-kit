@@ -1,5 +1,12 @@
+from dotenv import load_dotenv
+
 from google.adk.agents import Agent
 
+# Load environment variables from .env file
+load_dotenv()
+
+
+# Create the root agent
 root_agent = Agent(
     name="greeting_agent",
     description="A simple agent that greets the user.",
