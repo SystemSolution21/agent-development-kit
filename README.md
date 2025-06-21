@@ -31,10 +31,6 @@ uv add <PackageName>
 6. Connect to a billing account
 7. Add the API key to the .env file for each Agent folder
 
-   ```
-   GOOGLE_API_KEY=
-   ```
-
 ## Examples Overview
 
 Each example is designed to build upon the previous one, gradually introducing more complex concepts.

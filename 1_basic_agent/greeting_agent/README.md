@@ -120,7 +120,8 @@ If your agent doesn't appear in the dropdown menu:
 The ADK CLI tool provides several options:
 
 - **`adk web`**: Launches an interactive web UI for testing your agent with a chat interface
-- **`adk run [agent_name]`**: Runs your agent directly in the terminal
+- **`adk run greeting_agent`**: Runs your agent directly in the terminal
+   Incase Windows permission error, run the command as administrator.
 - **`adk api_server`**: Starts a FastAPI server to test API requests to your agent
 
 ### Example Prompts to Try
