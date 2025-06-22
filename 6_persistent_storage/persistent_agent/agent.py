@@ -217,7 +217,7 @@ persistent_agent = Agent(
     
     7. For deletions:
        - Confirm deletion when complete and mention which reminder was removed
-       - For example, "I've deleted your reminder to 'buy milk'"
+       - For example, "I've deleted your reminder 'buy milk'"
     
     Remember to explain that you can remember their information across conversations.
 

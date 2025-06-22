@@ -10,6 +10,7 @@ from google.adk.sessions.session import Session
 from google.genai import types
 
 from persistent_agent.agent import persistent_agent
+from utils import call_agent_async
 
 # Load environment variables from .env file
 load_dotenv()
@@ -26,11 +27,10 @@ session_service = DatabaseSessionService(db_url=db_url)
 
 
 # ===== Define Initial State =====
-def initialize_state() -> dict:
-    return {
-        "user_name": "John Doe",
-        "reminders": [],
-    }
+initial_state: dict = {
+    "user_name": "John Doe",
+    "reminders": [],
+}
 
 
 # Main entrypoint
@@ -52,6 +52,7 @@ async def main_async() -> None:
         new_session: Session = await session_service.create_session(
             app_name=APP_NAME,
             user_id=USER_ID,
+            state=initial_state,
             session_id=str(object=uuid.uuid4()),
         )
         SESSION_ID: str = new_session.id
@@ -79,11 +80,11 @@ async def main_async() -> None:
             break
 
         # process the user query
-        await call_agent_sync(
+        await call_agent_async(
             runner=runner,
             user_id=USER_ID,
             session_id=SESSION_ID,
-            user_input=user_input,
+            query=user_input,
         )
 
 
