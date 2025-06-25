@@ -1,6 +1,7 @@
 from google.adk.agents import Agent
 from google.adk.tools import google_search
 
+
 # Create the root agent
 news_analyst = Agent(
     name="news_analyst",
@@ -17,6 +18,9 @@ news_analyst = Agent(
 
     If the user ask for news using a relative time, 
     you should use the get_current_time tool to get the current time to use in the search query.
+
+    If the user asks about anything else that's not news-related, 
+    you should delegate the task to the manager agent.
 """,
     tools=[google_search],
 )

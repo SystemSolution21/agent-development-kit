@@ -1,7 +1,7 @@
 from google.adk.agents import Agent
 from google.adk.tools.agent_tool import AgentTool
 
-from .specialist.funny_nerd.agent import funny_nerd
+from .specialist.weather_analyst.agent import weather_analyst
 from .specialist.news_analyst.agent import news_analyst
 from .specialist.stock_analyst.agent import stock_analyst
 from .tools.tools import get_current_time
@@ -19,13 +19,13 @@ root_agent = Agent(
 
     You are responsible for delegating tasks to the following agent:
     - stock_analyst
-    - funny_nerd
+    - weather_analyst
 
     You also have access to the following tools:
     - news_analyst
     - get_current_time
     """,
-    sub_agents=[funny_nerd, stock_analyst],
+    sub_agents=[weather_analyst, stock_analyst],
     tools=[
         AgentTool(agent=news_analyst),
         get_current_time,
