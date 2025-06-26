@@ -36,10 +36,13 @@ initial_state: dict[str, str] = {
 
 # Creates a new session with a unique ID and initial state
 async def create_session() -> str:
+    """Create a new session with a unique ID and initial state."""
+
     # Generate session ID
     SESSION_ID: str = str(object=uuid.uuid4())
+
     # Create session
-    session_service: Session = await memory_session_service.create_session(
+    await memory_session_service.create_session(
         app_name=APP_NAME,
         user_id=USER_ID,
         session_id=SESSION_ID,
@@ -51,6 +54,7 @@ async def create_session() -> str:
 
 # Agent runner
 async def run_agent(SESSION_ID: str, input_text: str) -> None:
+    """Run the agent with the given input text."""
 
     runner = Runner(
         app_name=APP_NAME,
@@ -72,6 +76,7 @@ async def run_agent(SESSION_ID: str, input_text: str) -> None:
 
 # Logging session state
 async def log_session_state(SESSION_ID: str) -> None:
+    """Log the state of the session."""
 
     print("====== Session State ======")
     session: Session | None = await memory_session_service.get_session(
@@ -89,6 +94,7 @@ async def log_session_state(SESSION_ID: str) -> None:
 
 # Main Entrypoint
 async def main(input_text: str) -> None:
+    """Main entrypoint for the application."""
 
     # Create session
     SESSION_ID: str = await create_session()
@@ -102,6 +108,7 @@ async def main(input_text: str) -> None:
 
 # Run the async main function
 if __name__ == "__main__":
+
     while True:
         input_text: str = input("Ask a question (press 'q' to quit): ")
         if input_text.lower() == "q":
