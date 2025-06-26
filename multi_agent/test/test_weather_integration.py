@@ -9,15 +9,11 @@ import sys
 import pytest
 from dotenv import load_dotenv
 from typing import Any
-
-# Add the parent directory to the path to import the agents
-sys.path.append(os.path.dirname(os.path.abspath(path=__file__)))
-
+from google.adk.tools.tool_context import ToolContext
 from manager.specialist.weather_analyst.agent import (
     get_weather_data,
     get_weather_forecast,
 )
-from google.adk.tools.tool_context import ToolContext
 
 # Load environment variables from .env file
 load_dotenv()

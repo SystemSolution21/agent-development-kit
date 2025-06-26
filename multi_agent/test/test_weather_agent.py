@@ -8,15 +8,11 @@ import os
 import sys
 from typing import Any
 from unittest.mock import patch, MagicMock
-
-# Add the parent directory to the path to import the agents
-sys.path.append(os.path.dirname(os.path.abspath(path=__file__)))
-
+from google.adk.tools.tool_context import ToolContext
 from manager.specialist.weather_analyst.agent import (
     get_weather_data,
     get_weather_forecast,
 )
-from google.adk.tools.tool_context import ToolContext
 
 
 def test_weather_agent_without_api() -> None:
