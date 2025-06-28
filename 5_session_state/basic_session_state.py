@@ -39,21 +39,21 @@ async def create_session() -> str:
     """Create a new session with a unique ID and initial state."""
 
     # Generate session ID
-    SESSION_ID: str = str(object=uuid.uuid4())
+    session_id: str = str(object=uuid.uuid4())
 
     # Create session
     await memory_session_service.create_session(
         app_name=APP_NAME,
         user_id=USER_ID,
-        session_id=SESSION_ID,
+        session_id=session_id,
         state=initial_state,
     )
-    print(f"Session created:\nSession ID: {SESSION_ID}")
-    return SESSION_ID
+    print(f"Session created:\nSession ID: {session_id}")
+    return session_id
 
 
 # Agent runner
-async def run_agent(SESSION_ID: str, input_text: str) -> None:
+async def run_agent(session_id: str, input_text: str) -> None:
     """Run the agent with the given input text."""
 
     runner = Runner(
@@ -66,7 +66,7 @@ async def run_agent(SESSION_ID: str, input_text: str) -> None:
 
     for event in runner.run(
         user_id=USER_ID,
-        session_id=SESSION_ID,
+        session_id=session_id,
         new_message=new_message,
     ):
         if event.is_final_response():
@@ -75,14 +75,14 @@ async def run_agent(SESSION_ID: str, input_text: str) -> None:
 
 
 # Logging session state
-async def log_session_state(SESSION_ID: str) -> None:
+async def log_session_state(session_id: str) -> None:
     """Log the state of the session."""
 
     print("====== Session State ======")
     session: Session | None = await memory_session_service.get_session(
         app_name=APP_NAME,
         user_id=USER_ID,
-        session_id=SESSION_ID,
+        session_id=session_id,
     )
 
     if session is not None and hasattr(session, "state"):
@@ -97,13 +97,13 @@ async def main(input_text: str) -> None:
     """Main entrypoint for the application."""
 
     # Create session
-    SESSION_ID: str = await create_session()
+    session_id: str = await create_session()
 
     # Run agent
-    await run_agent(SESSION_ID=SESSION_ID, input_text=input_text)
+    await run_agent(session_id=session_id, input_text=input_text)
 
     # Log session state
-    await log_session_state(SESSION_ID=SESSION_ID)
+    await log_session_state(session_id=session_id)
 
 
 # Run the async main function
