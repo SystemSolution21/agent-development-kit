@@ -1,5 +1,4 @@
 import asyncio
-import uuid
 
 from dotenv import load_dotenv
 
@@ -8,12 +7,14 @@ from google.adk.sessions import InMemorySessionService
 from google.adk.sessions.session import Session
 
 from customer_service_agent.agent import customer_service_agent
+from .utils import add_user_query_to_interaction_history
+
 
 # Load environment variables from .env file
 load_dotenv()
 
 # ===== Application constants =====
-APP_NAME: str = "Customer Support"
+APP_NAME: str = "Customer Service"
 USER_ID: str = "john_doe"
 
 # ===== Initialize State =====
@@ -27,48 +28,42 @@ initial_state: dict = {
 session_service = InMemorySessionService()
 
 
-# ===== Create Session =====
-async def create_session() -> Session:
-    session_id = str(object=uuid.uuid4())
+# ===== Main Entrypoint =====
+async def main_async() -> None:
 
-    session: Session = await session_service.create_session(
+    # ===== Session Creation =====
+    # Create a new session
+    new_session: Session = await session_service.create_session(
         app_name=APP_NAME,
         user_id=USER_ID,
-        session_id=session_id,
         state=initial_state,
     )
+    session_id: str = new_session.id
     print(f"\nSession created: Session ID: {session_id}")
-    return session
 
-
-# ===== Agent Runner Setup =====
-async def agent_runner() -> Runner:
+    # ===== Agent Runner Setup =====
+    # Create a runner
     runner = Runner(
         app_name=APP_NAME,
         agent=customer_service_agent,
         session_service=session_service,
     )
-    return runner
-
-
-# ===== Main Entrypoint =====
-async def main_async() -> None:
-
-    # Create Session
-    session: Session = await create_session()
-
-    # Agent Runner Setup
-    runner: Runner = await agent_runner()
 
     # ===== Interactive Conversation Loop =====
     print("\nWelcome to the Customer Service Agent Chat!")
     print("Type 'exit' or 'quit' to end the conversation.\n")
 
-    # Start conversation
     while True:
         user_input: str = input("You: ")
         if user_input.lower() in ["exit", "quit"]:
-            print("Ending conversation.")
+            print("Ending conversation. Goodbye!")
             break
 
-    # Update interaction history with the user's query
+        # Update interaction history with the user's query
+        await add_user_query_to_interaction_history(
+            session_service=session_service,
+            app_name=APP_NAME,
+            user_id=USER_ID,
+            session_id=session_id,
+            query=user_input,
+        )
