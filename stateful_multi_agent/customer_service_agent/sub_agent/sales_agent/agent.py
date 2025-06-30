@@ -1,22 +1,10 @@
-from calendar import c
 from typing import Any
 from datetime import datetime
 
 from google.adk.agents import Agent
 from google.adk.tools.tool_context import ToolContext
 
-from sales_agent.course_info import (
-    COURSE_ID,
-    COURSE_NAME,
-    COURSE_PRICE,
-    COURSE_DURATION,
-)
-
-# Course information
-course_id = COURSE_ID
-course_name = COURSE_NAME
-course_price = COURSE_PRICE
-course_duration = COURSE_DURATION
+from .course_info import COURSE_ID, COURSE_NAME
 
 
 # Get current time
@@ -42,10 +30,10 @@ def purchase_course(tool_context: ToolContext) -> dict[str, Any]:
     courses_id: list[str] = [
         course["id"] for course in current_purchased_courses if isinstance(course, dict)
     ]
-    if course_id in courses_id:
+    if COURSE_ID in courses_id:
         return {
             "status": "error",
-            "message": f"You already own the course '{course_name}'.",
+            "message": f"You already own the {COURSE_NAME} course.",
         }
 
     # Create,add and update the new course purchase in state
@@ -54,7 +42,7 @@ def purchase_course(tool_context: ToolContext) -> dict[str, Any]:
         if isinstance(course, dict) and "id" in course:
             new_purchased_course.append(course)
     # Add the new course
-    new_purchased_course.append({"id": course_id, "purchase_date": current_time})
+    new_purchased_course.append({"id": COURSE_ID, "purchase_date": current_time})
     # Update state
     tool_context.state["purchased_courses"] = new_purchased_course
 
@@ -65,7 +53,7 @@ def purchase_course(tool_context: ToolContext) -> dict[str, Any]:
     current_interaction_history.append(
         {
             "action": "purchase_course",
-            "id": course_id,
+            "id": COURSE_ID,
             "timestamp": current_time,
         }
     )
@@ -73,8 +61,8 @@ def purchase_course(tool_context: ToolContext) -> dict[str, Any]:
 
     return {
         "status": "success",
-        "message": f"You have successfully purchased the course '{course_name}'.",
-        "id": course_id,
+        "message": f"You have successfully purchased the course {COURSE_NAME}!",
+        "id": COURSE_ID,
         "timestamp": current_time,
     }
 
@@ -83,10 +71,10 @@ def purchase_course(tool_context: ToolContext) -> dict[str, Any]:
 sales_agent = Agent(
     name="sales_agent",
     model="gemini-2.0-flash",
-    description=f"Sales agent for the {course_name} course",
+    description="Sales agent for the AI Marketing Platform course",
     instruction="""
     You are a sales agent for the AI Developer Accelerator community, specifically handling sales
-    for the {course_name} course.
+    for the AI Marketing Platform course.
 
     <user_info>
     Name: {user_name}
@@ -101,15 +89,22 @@ sales_agent = Agent(
     </interaction_history>
 
     Course Details:
-    - Name: {course_name}
-    - Price: ${course_price}
+    - Name: AI Marketing Platform
+    - Price: $149
+    - Duration: 6 weeks of content, self-paced learning
     - Value Proposition: Learn to build AI-powered marketing automation apps
-    - Includes: {course_duration} weeks of group support with weekly coaching calls
+    - Includes: 6 weeks of group support with weekly coaching calls
+
+    When users ask about pricing or duration:
+    - The course costs $149 (one-time payment, not a subscription)
+    - The course content takes approximately 6 weeks to complete at a comfortable pace
+    - Users have lifetime access to the content
+    - The course includes 6 weeks of group support with weekly coaching calls
 
     When interacting with users:
     1. Check if they already own the course (check purchased_courses above)
        - Course information is stored as objects with "id" and "purchase_date" properties
-       - The course name is "{course_name}"
+       - The course id is "ai_marketing_platform"
     2. If they own it:
        - Remind them they have access
        - Ask if they need help with any specific part
@@ -117,7 +112,7 @@ sales_agent = Agent(
     
     3. If they don't own it:
        - Explain the course value proposition
-       - Mention the price (${course_price})
+       - Mention the price ($149) and duration (6 weeks)
        - If they want to purchase:
            - Use the purchase_course tool
            - Confirm the purchase
@@ -126,11 +121,6 @@ sales_agent = Agent(
     4. After any interaction:
        - The state will automatically track the interaction
        - Be ready to hand off to course support after purchase
-
-    Remember:
-    - Be helpful but not pushy
-    - Focus on the value and practical skills they'll gain
-    - Emphasize the hands-on nature of building a real AI application
     """,
     tools=[purchase_course],
 )

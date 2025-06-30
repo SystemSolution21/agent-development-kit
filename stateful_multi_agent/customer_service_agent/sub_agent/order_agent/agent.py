@@ -4,12 +4,7 @@ from datetime import datetime
 from google.adk.agents import Agent
 from google.adk.tools.tool_context import ToolContext
 
-from sub_agent.sales_agent.course_info import (
-    COURSE_ID,
-    COURSE_NAME,
-    COURSE_PRICE,
-    COURSE_DURATION,
-)
+from ..sales_agent.course_info import COURSE_ID, COURSE_NAME
 
 
 # Get current time
@@ -19,12 +14,10 @@ def get_current_time() -> dict[str, str]:
 
 
 def refund_course(tool_context: ToolContext) -> dict[str, Any]:
-
-    # Course information
-    course_id = COURSE_ID
-    course_name = COURSE_NAME
-    course_price = COURSE_PRICE
-
+    """
+    Simulates refunding the AI Marketing Platform course.
+    Updates state by removing the course from purchased_courses.
+    """
     # Get current time
     current_time: str = get_current_time()["current_time"]
 
@@ -33,51 +26,40 @@ def refund_course(tool_context: ToolContext) -> dict[str, Any]:
         key="purchased_courses", default=[]
     )
 
-    # Check user owns the course
-    courses_id: list[str] = [
-        course["id"]
-        for course in current_purchased_courses
-        if isinstance(course, dict) and "id" in course
-    ]
-    if course_id not in courses_id:
+    # Check if user owns the course
+    course_found = False
+    for course in current_purchased_courses:
+        if isinstance(course, dict) and course.get("id") == COURSE_ID:
+            course_found = True
+            break
+
+    if not course_found:
         return {
             "status": "error",
-            "message": f"You do not own the course '{course_name}'. So it cannot be refunded.",
+            "message": f"You don't own the {COURSE_NAME} course, so it cannot be refunded.",
         }
 
-    # Refund and update purchased courses in state
-    update_purchased_courses: list[dict[str, Any]] = []
-    for course in current_purchased_courses:
-        # skip empty or non-valid course entries
-        if not course or not isinstance(course, dict):
-            continue
-        # skip the course to be refunded
-        if course.get("id") == course_id:
-            continue
-        # add the rest of the courses
-        update_purchased_courses.append(course)
-    # Update state
-    tool_context.state["purchased_courses"] = update_purchased_courses
+    # Refund and update purchased courses in state - COMPLETELY REPLACE the list
+    tool_context.state["purchased_courses"] = []
 
-    # Get and update current interaction history
+    # Add refund action to interaction history
     current_interaction_history: Any = tool_context.state.get(
         key="interaction_history", default=[]
     )
     current_interaction_history.append(
         {
             "action": "refund_course",
-            "id": course_id,
+            "id": COURSE_ID,
             "timestamp": current_time,
         }
     )
-    # Update interaction history in state
     tool_context.state["interaction_history"] = current_interaction_history
 
+    # Return success message
     return {
         "status": "success",
-        "message": f"""Successfully refunded the '{course_name}' course. ! 
-         Your ${course_price} will be returned to your original payment method within 3-5 business days.""",
-        "id": course_id,
+        "message": f"You have successfully refunded the course {COURSE_NAME}. Your $149 will be returned to your original payment method within 3-5 business days.",
+        "id": COURSE_ID,
         "timestamp": current_time,
     }
 
@@ -111,7 +93,7 @@ order_agent = Agent(
        - When they were purchased (from the course.purchase_date property)
 
     When users request a refund:
-    1. Verify they own the course they want to refund ("{course_name}")
+    1. Verify they own the course they want to refund ("ai_marketing_platform")
     2. If they own it:
        - Use the refund_course tool to process the refund
        - Confirm the refund was successful
@@ -121,10 +103,7 @@ order_agent = Agent(
        - Inform them they don't own the course, so no refund is needed
 
     Course Information:
-    - id: "{course_id}"
-    - name: "{course_name}"
-    - price: ${course_price}
-    - duration: {course_duration} weeks
+    - ai_marketing_platform: "AI Marketing Platform" ($149)
 
     Example Response for Purchase History:
     "Here are your purchased courses:
@@ -133,8 +112,8 @@ order_agent = Agent(
        - Full lifetime access"
 
     Example Response for Refund:
-    "I've processed your refund for the {COURSE_NAME} course.
-    Your ${COURSE_PRICE} will be returned to your original payment method within 3-5 business days.
+    "I've processed your refund for the AI Marketing Platform course.
+    Your $149 will be returned to your original payment method within 3-5 business days.
     The course has been removed from your account."
 
     If they haven't purchased any courses:

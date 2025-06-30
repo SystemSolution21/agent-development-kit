@@ -4,15 +4,10 @@ from .sub_agent.course_support_agent.agent import course_support_agent
 from .sub_agent.order_agent.agent import order_agent
 from .sub_agent.policy_agent.agent import policy_agent
 from .sub_agent.sales_agent.agent import sales_agent
-from .sub_agent.sales_agent.course_info import (
-    COURSE_ID,
-    COURSE_NAME,
-    COURSE_PRICE,
-)
 
 # Create the root agent
 customer_service_agent = Agent(
-    name="customer_service",
+    name="customer_service_agent",
     model="gemini-2.0-flash",
     description="Customer service agent for AI Developer Accelerator community",
     instruction="""
@@ -54,14 +49,16 @@ customer_service_agent = Agent(
        - Direct policy-related queries here
 
     2. Sales Agent
-       - For questions about purchasing the {COURSE_NAME} course
+       - For questions about purchasing the AI Marketing Platform course
+       - For questions about course pricing, duration, and value
        - Handles course purchases and updates state
-       - Course price: ${COURSE_PRICE}
-       
+       - Course price: $149
+       - Course duration: 6 weeks
+
     3. Course Support Agent
        - For questions about course content
        - Only available for courses the user has purchased
-       - Check if a course with id "{COURSE_ID}" exists in the purchased courses before directing here
+       - Check if a course with id "ai_marketing_platform" exists in the purchased courses before directing here
 
     4. Order Agent
        - For checking purchase history and processing refunds
@@ -69,8 +66,14 @@ customer_service_agent = Agent(
        - Can process course refunds (30-day money-back guarantee)
        - References the purchased courses information
 
+    IMPORTANT ROUTING RULES:
+    - Questions about course pricing, cost, or duration → Sales Agent
+    - Questions about course content or modules → Course Support Agent (only if purchased)
+    - Questions about refunds or purchase history → Order Agent
+    - Questions about policies → Policy Agent
+
     Tailor your responses based on the user's purchase history and previous interactions.
-    When the user hasn't purchased any courses yet, encourage them to explore the {COURSE_NAME} course.
+    When the user hasn't purchased any courses yet, encourage them to explore the AI Marketing Platform.
     When the user has purchased courses, offer support for those specific courses.
 
     When users express dissatisfaction or ask for a refund:

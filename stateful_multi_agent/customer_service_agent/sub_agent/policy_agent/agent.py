@@ -1,6 +1,6 @@
 from google.adk.agents import Agent
 
-from sub_agent.sales_agent.course_info import COURSE_DURATION
+from ..sales_agent.course_info import COURSE_DURATION
 
 # Create the policy agent
 policy_agent = Agent(
@@ -39,7 +39,7 @@ policy_agent = Agent(
 
     2. Course Access
        - Lifetime access to course content
-       - {COURSE_DURATION} weeks of group support included
+       - 6 weeks of group support included
        - Weekly coaching calls every Sunday
 
     3. Code Usage
