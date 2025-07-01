@@ -1,0 +1,12 @@
+name: "sales_agent"
+model: "gemini-2.0-flash"
+description: "Sales agent for the AI Marketing Platform course"
+instruction_template: "sales_agent/main.j2"
+variables:
+  course_price: 149
+  course_duration: "6 weeks"
+  course_name: "AI Marketing Platform"
+sub_agents: []
+tools:
+  - purchase_course
+  - demo_purchase_link

@@ -1,0 +1,39 @@
+# Application Configuration
+app:
+  name: "Customer Service"
+  description: "AI-powered customer service system for course sales and support"
+  version: "1.0.0"
+
+# Default user configuration
+user:
+  default_user_id: "john_doe"
+  default_user_name: "John Doe"
+
+# Session configuration
+session:
+  service_type: "InMemorySessionService"  # or "DatabaseSessionService"
+  initial_state:
+    purchased_courses: []
+    interaction_history: []
+
+# Environment settings
+environment:
+  default: "production"
+  available_environments:
+    - "development"
+    - "staging" 
+    - "production"
+
+# Paths configuration
+paths:
+  agents_config_dir: "config/agents"
+  templates_dir: "templates"
+
+# Course configuration
+courses:
+  ai_marketing_platform:
+    id: "ai_marketing_platform"
+    name: "AI Marketing Platform"
+    price: 149
+    duration_weeks: 6
+    refund_policy_days: 30

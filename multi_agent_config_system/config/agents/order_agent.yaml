@@ -1,0 +1,9 @@
+name: "order_agent"
+model: "gemini-2.0-flash"
+description: "Order agent for managing purchase history and refunds"
+instruction_template: "order_agent/main.j2"
+variables:
+  refund_policy_days: 30
+sub_agents: []
+tools:
+  - refund_course

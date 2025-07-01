@@ -1,0 +1,8 @@
+name: "policy_agent"
+model: "gemini-2.0-flash"
+description: "Policy agent for the AI Developer Accelerator community"
+instruction_template: "policy_agent/main.j2"
+variables:
+  refund_policy_days: 30
+sub_agents: []
+tools: []

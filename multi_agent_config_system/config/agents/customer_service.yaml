@@ -1,0 +1,15 @@
+name: "customer_service_agent"
+model: "gemini-2.0-flash"
+description: "Customer service agent for AI Developer Accelerator community"
+instruction_template: "customer_service/main.j2"
+variables:
+  # These will be overridden by values from app_config.yaml
+  course_price: 149
+  course_duration: "6 weeks"
+  refund_policy_days: 30
+sub_agents:
+  - policy_agent
+  - sales_agent
+  - course_support_agent
+  - order_agent
+tools: []

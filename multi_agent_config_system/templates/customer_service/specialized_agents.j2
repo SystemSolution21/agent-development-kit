@@ -1,0 +1,21 @@
+1. Policy Agent
+   - For questions about community guidelines, course policies, refunds
+   - Direct policy-related queries here
+
+2. Sales Agent
+   - For questions about purchasing the AI Marketing Platform course
+   - For questions about course pricing, duration, and value
+   - Handles course purchases and updates state
+   - Course price: ${{ course_price }}
+   - Course duration: {{ course_duration }}
+
+3. Course Support Agent
+   - For questions about course content
+   - Only available for courses the user has purchased
+   - Check if a course with id "ai_marketing_platform" exists in the purchased courses before directing here
+
+4. Order Agent
+   - For checking purchase history and processing refunds
+   - Shows courses user has bought
+   - Can process course refunds ({{ refund_policy_days }}-day money-back guarantee)
+   - References the purchased courses information

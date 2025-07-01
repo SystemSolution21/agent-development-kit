@@ -1,0 +1,8 @@
+name: "course_support_agent"
+model: "gemini-2.0-flash"
+description: "Course support agent for the AI Marketing Platform course"
+instruction_template: "course_support_agent/main.j2"
+variables:
+  course_name: "AI Marketing Platform"
+sub_agents: []
+tools: []

@@ -1,0 +1,13 @@
+# Development Environment Overrides
+app:
+  name: "Customer Service (DEV)"
+
+user:
+  default_user_id: "dev_user"
+  default_user_name: "Dev User"
+
+# Development-specific course pricing
+courses:
+  ai_marketing_platform:
+    price: 1  # $1 for testing
+    refund_policy_days: 7  # Shorter refund window for testing
