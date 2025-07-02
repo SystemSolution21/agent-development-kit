@@ -1,6 +1,6 @@
 """Agent configuration management package."""
 
-from .config_manager import AgentConfigManager
 from .agent_factory import AgentFactory
+from .config_manager import AgentConfigManager
 
-__all__ = ["AgentConfigManager", "AgentFactory"]
+__all__: list[str] = ["AgentConfigManager", "AgentFactory"]
