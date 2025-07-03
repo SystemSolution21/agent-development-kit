@@ -1,5 +1,5 @@
-from typing import Any
 from datetime import datetime
+from typing import Any
 
 from google.adk.agents import Agent
 from google.adk.tools.tool_context import ToolContext
@@ -26,7 +26,7 @@ def refund_course(tool_context: ToolContext) -> dict[str, Any]:
         key="purchased_courses", default=[]
     )
 
-    # Check if user owns the course
+    # Check user owns the course
     course_found = False
     for course in current_purchased_courses:
         if isinstance(course, dict) and course.get("id") == COURSE_ID:
