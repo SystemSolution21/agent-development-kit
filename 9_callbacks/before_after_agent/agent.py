@@ -1,10 +1,16 @@
 from datetime import datetime
+from logging import Logger
 from typing import Any, Optional
 
 from google.adk.agents import LlmAgent
 from google.adk.agents.callback_context import CallbackContext
 from google.adk.sessions.state import State
 from google.genai import types as genai_types
+
+from utils.logger import AdkLogger
+
+# Initialize logger
+logger: Logger = AdkLogger.get_logger(module_name=__name__)
 
 
 def before_agent_callback(
@@ -40,13 +46,13 @@ def before_agent_callback(
     state["request_start_time"] = timestamp
 
     # Log the request
-    print("===== Agent Execution Started =====")
-    print(f"Request #{state['request_count']}")
-    print(f"Agent: {state['agent_name']}")
-    print(f"Timestamp: {timestamp}")
-
-    # Console output
-    print(f"\n[Before Callback] Agent processing request #{state['request_count']}")
+    logger.info("===== Agent Execution Started =====")
+    logger.info("Request #%s", state["request_count"])
+    logger.info("Agent: %s", state["agent_name"])
+    logger.info("Timestamp: %s", timestamp)
+    logger.info(
+        "[Before Callback] Agent processing request #%s", state["request_count"]
+    )
 
     return None
 
@@ -71,19 +77,17 @@ def after_agent_callback(callback_context: CallbackContext) -> None:
     if "request_start_time" in state:
         duration: Any = (timestamp - state["request_start_time"]).total_seconds()
 
-    # Log the request
-    print("===== Agent Execution Completed =====")
-    print(f"Request #{state.get(key='request_count', default='Unknown')}")
-    print(f"Agent: {state.get(key='agent_name', default='Unknown')}")
-    if duration is not None:
-        print(f"Duration: {duration:.2f} seconds")
-
-    # Console output
-    print(
-        f"\n[After Callback] Agent finished processing request #{state.get(key='request_count', default='Unknown')}"
+    # Log the request processing
+    logger.info("===== Agent Execution Completed =====")
+    logger.info("Request #%s", state.get(key="request_count", default="Unknown"))
+    logger.info("Agent: %s", state.get(key="agent_name", default="Unknown"))
+    logger.info("Timestamp: %s", timestamp)
+    logger.info(
+        "[After Callback] Agent finished processing request #%s",
+        state.get(key="request_count", default="Unknown"),
     )
     if duration is not None:
-        print(f"[After Callback] processing took {duration:.2f} seconds")
+        logger.info("[After Callback] processing took %.2f seconds", duration)
 
     return None
 

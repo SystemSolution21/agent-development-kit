@@ -1,5 +1,6 @@
 import copy
 from datetime import datetime
+from logging import Logger
 from typing import Optional
 
 from google.adk.agents import LlmAgent
@@ -8,6 +9,11 @@ from google.adk.models.llm_request import LlmRequest
 from google.adk.models.llm_response import LlmResponse
 from google.adk.sessions.state import State
 from google.genai import types
+
+from utils.logger import AdkLogger
+
+# Initialize logger
+logger: Logger = AdkLogger.get_logger(module_name=__name__)
 
 
 def before_model_callback(
@@ -39,23 +45,18 @@ def before_model_callback(
                     break
 
     # Log the before-model-callback request
-    print("===== Model Request Started =====")
-    print(f"Agent: {agent_name}")
+    logger.info("===== Model Request Started =====")
+    logger.info("Agent: %s", agent_name)
     if last_user_message:
-        print(f"User message: {last_user_message[:100]}...")
-        # Store last user message in state
-        state["last_user_message"] = last_user_message
+        logger.info(f"User message: {last_user_message[:100]}...")
     else:
-        print("User message: <empty>")
-    # Timestamp
-    print(f"Timestamp: {datetime.now().strftime(format='%Y-%m-%d %H:%M:%S')}")
+        logger.info("User message: <empty>")
+    logger.info("Timestamp: %s", datetime.now().strftime(format="%Y-%m-%d %H:%M:%S"))
 
     # Check for inappropriate content
     prohibit: list[str] = [
         "sucks",
         "hate",
-        "hated",
-        "hates",
         "bad",
         "horrible",
         "terrible",
@@ -65,10 +66,11 @@ def before_model_callback(
     if last_user_message:
         for word in prohibit:
             if word in last_user_message.lower():
-                print("===== Inappropriate Content Blocked =====")
-                print(f"Blocked text containing prohibited word '{word}'")
-                print(
-                    "[Before Model Callback] ⚠️ Request blocked due to inappropriate content"
+                # Log the blocked request
+                logger.info(msg="===== Inappropriate Content Blocked =====")
+                logger.info(msg=f"Blocked text containing prohibited word {word!r}")
+                logger.info(
+                    msg="[Before Model Callback] ⚠️ Request blocked due to inappropriate content."
                 )
 
                 # Return a response to skip the model call
@@ -84,9 +86,12 @@ def before_model_callback(
                     )
                 )
 
-    # Record start time for duration calculation
+    # Record start time in callback context state
     state["model_start_time"] = datetime.now()
-    print("[Before Model Callback] ✓ Request approved for processing")
+
+    # Log request approval
+    logger.info(msg="[Before Model Callback] ✓ Request approved for processing")
+
     return None
 
 
@@ -105,7 +110,7 @@ def after_model_callback(
     """
 
     # Log the after-model-callback response
-    print("===== After Model Callback Response Processing =====")
+    logger.info(msg="===== After Model Callback Response Processing =====")
 
     # Check llm response and extract response text
     if not llm_response or not llm_response.content or not llm_response.content.parts:
@@ -130,8 +135,6 @@ def after_model_callback(
         "awful": "challenging",
         "sucks": "is a challenge",
         "hate": "dislike",
-        "hated": "disliked",
-        "hates": "dislikes",
     }
 
     modified_text: str = response_text
@@ -146,8 +149,10 @@ def after_model_callback(
 
     if MODIFIED:
         # Log the modified response text
-        print("[After Model Callback] ✓ Response modified")
-        print(f"Modified response: {modified_text[:100]}...")
+        logger.info(msg="[After Model Callback] ✓ Response modified")
+        logger.info(msg=f"Modified response: {modified_text[:100]}...")
+
+        # Create a new llm response with the modified text
         modified_parts = [copy.deepcopy(part) for part in llm_response.content.parts]
         for i, part in enumerate(modified_parts):
             if hasattr(part, "text") and part.text:

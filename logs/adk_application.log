@@ -1,0 +1,15 @@
+2025-07-07 23:48:37,096 - before_after_model.agent - INFO - ===== Model Request Started =====
+2025-07-07 23:48:37,096 - before_after_model.agent - INFO - Agent: content_filter_agent
+2025-07-07 23:48:37,096 - before_after_model.agent - INFO - User message: This website sucks, can you help me fix it?...
+2025-07-07 23:48:37,096 - before_after_model.agent - INFO - Timestamp: 2025-07-07 23:48:37
+2025-07-07 23:48:37,096 - before_after_model.agent - INFO - ===== Inappropriate Content Blocked =====
+2025-07-07 23:48:37,096 - before_after_model.agent - INFO - Blocked text containing prohibited word 'sucks'
+2025-07-07 23:48:37,096 - before_after_model.agent - INFO - [Before Model Callback] ⚠️ Request blocked due to inappropriate content.
+2025-07-07 23:49:18,903 - before_after_model.agent - INFO - ===== Model Request Started =====
+2025-07-07 23:49:18,903 - before_after_model.agent - INFO - Agent: content_filter_agent
+2025-07-07 23:49:18,903 - before_after_model.agent - INFO - User message: I have a problem with my code that's very difficult to solve....
+2025-07-07 23:49:18,903 - before_after_model.agent - INFO - Timestamp: 2025-07-07 23:49:18
+2025-07-07 23:49:18,903 - before_after_model.agent - INFO - [Before Model Callback] ✓ Request approved for processing
+2025-07-07 23:49:21,462 - before_after_model.agent - INFO - ===== After Model Callback Response Processing =====
+2025-07-07 23:49:21,462 - before_after_model.agent - INFO - [After Model Callback] ✓ Response modified
+2025-07-07 23:49:21,462 - before_after_model.agent - INFO - Modified response: Okay, I'm ready to help! To give you the best advice, please tell me more about the challenge. Speci...
