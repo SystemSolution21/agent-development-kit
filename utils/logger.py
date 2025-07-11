@@ -15,12 +15,13 @@ class AdkLogger:
     _instance: Optional[logging.Logger] = None
 
     @staticmethod
-    def setup(module_name: str) -> logging.Logger:
+    def setup(module_name: str, level: int) -> logging.Logger:
         """
         Configure and return a logger instance with both file and console handlers.
 
         Args:
             module_name: Name of the module requesting the logger
+            level: Logging level (e.g., logging.DEBUG, logging.INFO)
 
         Returns:
             logging.Logger: Configured logger instance
@@ -38,7 +39,7 @@ class AdkLogger:
 
         # Create and configure logger
         logger: logging.Logger = logging.getLogger(name=module_name)
-        logger.setLevel(level=logging.INFO)
+        logger.setLevel(level=level)
         logger.propagate = False  # Prevent messages from propagating to the root logger
 
         # Create formatters and handlers
@@ -69,7 +70,7 @@ class AdkLogger:
         return logger
 
     @staticmethod
-    def get_logger(module_name: str) -> logging.Logger:
+    def get_logger(module_name: str, level: int) -> logging.Logger:
         """
         Get or create a logger instance.
 
@@ -80,5 +81,5 @@ class AdkLogger:
             logging.Logger: Configured logger instance
         """
         if AdkLogger._instance is None:
-            return AdkLogger.setup(module_name=module_name)
+            return AdkLogger.setup(module_name=module_name, level=level)
         return AdkLogger._instance

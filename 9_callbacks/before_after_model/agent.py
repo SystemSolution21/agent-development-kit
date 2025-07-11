@@ -1,4 +1,5 @@
 import copy
+import logging
 from datetime import datetime
 from logging import Logger
 from typing import Optional
@@ -13,7 +14,7 @@ from google.genai import types
 from utils.logger import AdkLogger
 
 # Initialize logger
-logger: Logger = AdkLogger.get_logger(module_name=__name__)
+logger: Logger = AdkLogger.get_logger(module_name=__name__, level=logging.INFO)
 
 
 def before_model_callback(
