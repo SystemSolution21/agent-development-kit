@@ -48,3 +48,17 @@
 2025-07-11 19:51:08,139 - before_after_tool.agent - INFO - Timestamp: 2025-07-11 19:51:08.139342
 2025-07-11 19:51:08,139 - before_after_tool.agent - INFO - [After Callback] Agent finished processing request #1
 2025-07-11 19:51:08,139 - before_after_tool.agent - INFO - [After Callback] processing took 1.27 seconds
+2025-07-12 19:17:00,347 - lead_qualification_agent.subagents.scorer.agent - INFO - ===== Agent Execution Started =====
+2025-07-12 19:17:00,348 - lead_qualification_agent.subagents.scorer.agent - INFO - Agent: LeadQualificationAgent
+2025-07-12 19:17:00,348 - lead_qualification_agent.subagents.scorer.agent - INFO - Timestamp: 2025-07-12 19:17:00
+2025-07-12 19:17:00,349 - lead_qualification_agent.subagents.scorer.agent - INFO - ===== Agent Execution Started =====
+2025-07-12 19:17:00,349 - lead_qualification_agent.subagents.scorer.agent - INFO - Agent: LeadValidatorAgent
+2025-07-12 19:17:00,349 - lead_qualification_agent.subagents.scorer.agent - INFO - Timestamp: 2025-07-12 19:17:00
+2025-07-12 19:17:01,866 - lead_qualification_agent.subagents.scorer.agent - INFO - ===== Agent Execution Completed =====
+2025-07-12 19:17:01,866 - lead_qualification_agent.subagents.scorer.agent - INFO - Agent: LeadValidatorAgent
+2025-07-12 19:17:01,866 - lead_qualification_agent.subagents.scorer.agent - INFO - Timestamp: 2025-07-12 19:17:01
+2025-07-12 19:17:01,866 - lead_qualification_agent.subagents.scorer.agent - INFO - Workflows proceed to Lead Scorer Agent.
+2025-07-12 19:17:05,453 - lead_qualification_agent.subagents.scorer.agent - INFO - ===== Agent Execution Completed =====
+2025-07-12 19:17:05,454 - lead_qualification_agent.subagents.scorer.agent - INFO - Agent: LeadQualificationAgent
+2025-07-12 19:17:05,454 - lead_qualification_agent.subagents.scorer.agent - INFO - Timestamp: 2025-07-12 19:17:05
+2025-07-12 19:17:05,454 - lead_qualification_agent.subagents.scorer.agent - INFO - Workflows proceed to Lead Validator Agent.
