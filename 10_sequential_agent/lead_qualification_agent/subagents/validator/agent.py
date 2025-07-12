@@ -18,7 +18,7 @@ from google.adk.models.llm_response import LlmResponse
 from utils.logger import AdkLogger
 
 # Initialize logger
-logger: Logger = AdkLogger.get_logger(module_name=__name__, level=logging.INFO)
+logger: Logger = AdkLogger.setup(module_name=__name__, level=logging.INFO)
 
 
 def before_model_callback(

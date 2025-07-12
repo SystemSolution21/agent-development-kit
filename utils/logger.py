@@ -6,13 +6,10 @@ Provides centralized logging setup with both file and console output.
 import logging
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
-from typing import Optional
 
 
 class AdkLogger:
     """Logger class for ADK applications with file and console output."""
-
-    _instance: Optional[logging.Logger] = None
 
     @staticmethod
     def setup(module_name: str, level: int) -> logging.Logger:
@@ -26,9 +23,6 @@ class AdkLogger:
         Returns:
             logging.Logger: Configured logger instance
         """
-        if AdkLogger._instance is not None:
-            return AdkLogger._instance
-
         # Create logs directory
         current_dir: Path = Path(__file__).parent.parent.resolve()
         logs_dir: Path = current_dir / "logs"
@@ -48,15 +42,18 @@ class AdkLogger:
         )
 
         # Rotating file handler
-        file_handler: RotatingFileHandler = RotatingFileHandler(
-            filename=log_file,
-            maxBytes=10_000_000,  # 10 MB
-            backupCount=5,
-            encoding="utf-8",
-        )
-        file_handler.setFormatter(fmt=formatter)
-        # Add file handler to logger
-        logger.addHandler(hdlr=file_handler)
+        if not any(
+            isinstance(h, RotatingFileHandler) and h.baseFilename == str(log_file)
+            for h in logger.handlers
+        ):
+            file_handler: RotatingFileHandler = RotatingFileHandler(
+                filename=log_file,
+                maxBytes=10_000_000,  # 10 MB
+                backupCount=5,
+                encoding="utf-8",
+            )
+            file_handler.setFormatter(fmt=formatter)
+            logger.addHandler(hdlr=file_handler)
 
         # # Console handler
         # console_handler: logging.StreamHandler = logging.StreamHandler()
@@ -64,22 +61,4 @@ class AdkLogger:
         # # Add console handlers to logger
         # logger.addHandler(hdlr=console_handler)
 
-        # Store instance
-        AdkLogger._instance = logger
-
         return logger
-
-    @staticmethod
-    def get_logger(module_name: str, level: int) -> logging.Logger:
-        """
-        Get or create a logger instance.
-
-        Args:
-            module_name: Name of the module requesting the logger
-
-        Returns:
-            logging.Logger: Configured logger instance
-        """
-        if AdkLogger._instance is None:
-            return AdkLogger.setup(module_name=module_name, level=level)
-        return AdkLogger._instance

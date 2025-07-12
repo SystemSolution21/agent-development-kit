@@ -9,7 +9,7 @@ from google.adk.tools import BaseTool, ToolContext
 from utils.logger import AdkLogger
 
 # Initialize logger
-logger: Logger = AdkLogger.get_logger(module_name=__name__, level=logging.INFO)
+logger: Logger = AdkLogger.setup(module_name=__name__, level=logging.INFO)
 
 
 # --- Define Tools ---

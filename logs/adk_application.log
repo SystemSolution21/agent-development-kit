@@ -1,64 +1,124 @@
-2025-07-11 19:27:07,485 - before_after_tool.agent - INFO - ===== Tool Execution Started =====
-2025-07-11 19:27:07,486 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Executing tool get_capital_city with args: {'country': 'FRance'}
-2025-07-11 19:27:07,486 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Proceeding with the tool get_capital_city
-2025-07-11 19:27:07,486 - before_after_tool.agent - INFO - [TOOL] Executing get_capital_city tool with country(FRance)
-2025-07-11 19:27:07,486 - before_after_tool.agent - INFO - [TOOL] get_capital_city tool returning result: Paris
-2025-07-11 19:27:07,486 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Executed tool get_capital_city with args: {'country': 'FRance'}
-2025-07-11 19:27:07,486 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Tool response: {'result': 'Paris'}
-2025-07-11 19:27:07,486 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] No modifications made to response
-2025-07-11 19:28:35,733 - before_after_tool.agent - INFO - ===== Tool Execution Started =====
-2025-07-11 19:28:35,733 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Executing tool get_capital_city with args: {'country': 'merica'}
-2025-07-11 19:28:35,733 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Converting 'merica' to 'United States'
-2025-07-11 19:28:35,733 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Modified arguments: {'country': 'United States'}
-2025-07-11 19:28:35,733 - before_after_tool.agent - INFO - [TOOL] Executing get_capital_city tool with country(United States)
-2025-07-11 19:28:35,733 - before_after_tool.agent - INFO - [TOOL] get_capital_city tool returning result: Washington, D.C.
-2025-07-11 19:28:35,733 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Executed tool get_capital_city with args: {'country': 'United States'}
-2025-07-11 19:28:35,733 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Tool response: {'result': 'Washington, D.C.'}
-2025-07-11 19:28:35,734 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] DETECTED USA CAPITAL. adding patriotic notes!
-2025-07-11 19:28:35,734 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Modified response: {'result': 'washington, d.c.. (Note: It is the capital of the United States of America.)', 'note_added_by_callback': True}
-2025-07-11 19:30:06,876 - before_after_tool.agent - INFO - ===== Tool Execution Started =====
-2025-07-11 19:30:06,877 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Executing tool get_capital_city with args: {'country': 'restricted'}
-2025-07-11 19:30:06,877 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Blocking request for restricted country
-2025-07-11 19:30:06,877 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Executed tool get_capital_city with args: {'country': 'restricted'}
-2025-07-11 19:30:06,877 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Tool response: {'result': 'Access to this information is restricted'}
-2025-07-11 19:30:06,877 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] No modifications made to response
-2025-07-11 19:46:05,283 - before_after_tool.agent - INFO - ===== Model Request Started =====
-2025-07-11 19:46:05,283 - before_after_tool.agent - INFO - Agent: content_filter_agent
-2025-07-11 19:46:05,283 - before_after_tool.agent - INFO - User message: This website sucks, can you help me fix it?...
-2025-07-11 19:46:05,283 - before_after_tool.agent - INFO - Timestamp: 2025-07-11 19:46:05
-2025-07-11 19:46:05,284 - before_after_tool.agent - INFO - ===== Inappropriate Content Blocked =====
-2025-07-11 19:46:05,284 - before_after_tool.agent - INFO - Blocked text containing prohibited word 'sucks'
-2025-07-11 19:46:05,284 - before_after_tool.agent - INFO - [Before Model Callback] ⚠️ Request blocked due to inappropriate content.
-2025-07-11 19:46:52,597 - before_after_tool.agent - INFO - ===== Model Request Started =====
-2025-07-11 19:46:52,597 - before_after_tool.agent - INFO - Agent: content_filter_agent
-2025-07-11 19:46:52,597 - before_after_tool.agent - INFO - User message: I have a problem with my code that's very difficult to solve....
-2025-07-11 19:46:52,598 - before_after_tool.agent - INFO - Timestamp: 2025-07-11 19:46:52
-2025-07-11 19:46:52,598 - before_after_tool.agent - INFO - [Before Model Callback] ✓ Request approved for processing
-2025-07-11 19:46:55,048 - before_after_tool.agent - INFO - ===== After Model Callback Response Processing =====
-2025-07-11 19:46:55,048 - before_after_tool.agent - INFO - [After Model Callback] ✓ Response modified
-2025-07-11 19:46:55,048 - before_after_tool.agent - INFO - Modified response: I understand you're facing a tough coding challenge. I'm here to help! To give you the best assistan...
-2025-07-11 19:51:06,871 - before_after_tool.agent - INFO - ===== Agent Execution Started =====
-2025-07-11 19:51:06,871 - before_after_tool.agent - INFO - Request #1
-2025-07-11 19:51:06,871 - before_after_tool.agent - INFO - Agent: SimpleChatAgent
-2025-07-11 19:51:06,871 - before_after_tool.agent - INFO - Timestamp: 2025-07-11 19:51:06.871222
-2025-07-11 19:51:06,871 - before_after_tool.agent - INFO - [Before Callback] Agent processing request #1
-2025-07-11 19:51:08,139 - before_after_tool.agent - INFO - ===== Agent Execution Completed =====
-2025-07-11 19:51:08,139 - before_after_tool.agent - INFO - Request #1
-2025-07-11 19:51:08,139 - before_after_tool.agent - INFO - Agent: SimpleChatAgent
-2025-07-11 19:51:08,139 - before_after_tool.agent - INFO - Timestamp: 2025-07-11 19:51:08.139342
-2025-07-11 19:51:08,139 - before_after_tool.agent - INFO - [After Callback] Agent finished processing request #1
-2025-07-11 19:51:08,139 - before_after_tool.agent - INFO - [After Callback] processing took 1.27 seconds
-2025-07-12 19:17:00,347 - lead_qualification_agent.subagents.scorer.agent - INFO - ===== Agent Execution Started =====
-2025-07-12 19:17:00,348 - lead_qualification_agent.subagents.scorer.agent - INFO - Agent: LeadQualificationAgent
-2025-07-12 19:17:00,348 - lead_qualification_agent.subagents.scorer.agent - INFO - Timestamp: 2025-07-12 19:17:00
-2025-07-12 19:17:00,349 - lead_qualification_agent.subagents.scorer.agent - INFO - ===== Agent Execution Started =====
-2025-07-12 19:17:00,349 - lead_qualification_agent.subagents.scorer.agent - INFO - Agent: LeadValidatorAgent
-2025-07-12 19:17:00,349 - lead_qualification_agent.subagents.scorer.agent - INFO - Timestamp: 2025-07-12 19:17:00
-2025-07-12 19:17:01,866 - lead_qualification_agent.subagents.scorer.agent - INFO - ===== Agent Execution Completed =====
-2025-07-12 19:17:01,866 - lead_qualification_agent.subagents.scorer.agent - INFO - Agent: LeadValidatorAgent
-2025-07-12 19:17:01,866 - lead_qualification_agent.subagents.scorer.agent - INFO - Timestamp: 2025-07-12 19:17:01
-2025-07-12 19:17:01,866 - lead_qualification_agent.subagents.scorer.agent - INFO - Workflows proceed to Lead Scorer Agent.
-2025-07-12 19:17:05,453 - lead_qualification_agent.subagents.scorer.agent - INFO - ===== Agent Execution Completed =====
-2025-07-12 19:17:05,454 - lead_qualification_agent.subagents.scorer.agent - INFO - Agent: LeadQualificationAgent
-2025-07-12 19:17:05,454 - lead_qualification_agent.subagents.scorer.agent - INFO - Timestamp: 2025-07-12 19:17:05
-2025-07-12 19:17:05,454 - lead_qualification_agent.subagents.scorer.agent - INFO - Workflows proceed to Lead Validator Agent.
+2025-07-13 01:23:16,391 - before_after_agent.agent - INFO - ===== Agent Execution Started =====
+2025-07-13 01:23:16,391 - before_after_agent.agent - INFO - Request #1
+2025-07-13 01:23:16,391 - before_after_agent.agent - INFO - Agent: SimpleChatAgent
+2025-07-13 01:23:16,391 - before_after_agent.agent - INFO - Timestamp: 2025-07-13 01:23:16.391299
+2025-07-13 01:23:16,392 - before_after_agent.agent - INFO - [Before Callback] Agent processing request #1
+2025-07-13 01:23:18,901 - before_after_agent.agent - INFO - ===== Agent Execution Completed =====
+2025-07-13 01:23:18,901 - before_after_agent.agent - INFO - Request #1
+2025-07-13 01:23:18,901 - before_after_agent.agent - INFO - Agent: SimpleChatAgent
+2025-07-13 01:23:18,901 - before_after_agent.agent - INFO - Timestamp: 2025-07-13 01:23:18.901348
+2025-07-13 01:23:18,901 - before_after_agent.agent - INFO - [After Callback] Agent finished processing request #1
+2025-07-13 01:23:18,901 - before_after_agent.agent - INFO - [After Callback] processing took 2.51 seconds
+2025-07-13 01:24:33,745 - before_after_model.agent - INFO - ===== Model Request Started =====
+2025-07-13 01:24:33,745 - before_after_model.agent - INFO - Agent: content_filter_agent
+2025-07-13 01:24:33,745 - before_after_model.agent - INFO - User message: This website sucks, can you help me fix it?...
+2025-07-13 01:24:33,745 - before_after_model.agent - INFO - Timestamp: 2025-07-13 01:24:33
+2025-07-13 01:24:33,745 - before_after_model.agent - INFO - ===== Inappropriate Content Blocked =====
+2025-07-13 01:24:33,745 - before_after_model.agent - INFO - Blocked text containing prohibited word 'sucks'
+2025-07-13 01:24:33,745 - before_after_model.agent - INFO - [Before Model Callback] ⚠️ Request blocked due to inappropriate content.
+2025-07-13 01:25:43,332 - before_after_model.agent - INFO - ===== Model Request Started =====
+2025-07-13 01:25:43,332 - before_after_model.agent - INFO - Agent: content_filter_agent
+2025-07-13 01:25:43,332 - before_after_model.agent - INFO - User message: I have a problem with my code that's very difficult to solve....
+2025-07-13 01:25:43,332 - before_after_model.agent - INFO - Timestamp: 2025-07-13 01:25:43
+2025-07-13 01:25:43,332 - before_after_model.agent - INFO - [Before Model Callback] ✓ Request approved for processing
+2025-07-13 01:25:46,292 - before_after_model.agent - INFO - ===== After Model Callback Response Processing =====
+2025-07-13 01:25:46,292 - before_after_model.agent - INFO - [After Model Callback] ✓ Response modified
+2025-07-13 01:25:46,293 - before_after_model.agent - INFO - Modified response: I understand you're facing a tough coding challenge. I'm here to help! To give you the best advice, ...
+2025-07-13 01:27:55,419 - before_after_tool.agent - INFO - ===== Tool Execution Started =====
+2025-07-13 01:27:55,419 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Executing tool get_capital_city with args: {'country': 'USA'}
+2025-07-13 01:27:55,419 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Proceeding with the tool get_capital_city
+2025-07-13 01:27:55,419 - before_after_tool.agent - INFO - [TOOL] Executing get_capital_city tool with country(USA)
+2025-07-13 01:27:55,419 - before_after_tool.agent - INFO - [TOOL] get_capital_city tool returning result: Washington, D.C.
+2025-07-13 01:27:55,419 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Executed tool get_capital_city with args: {'country': 'USA'}
+2025-07-13 01:27:55,419 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Tool response: {'result': 'Washington, D.C.'}
+2025-07-13 01:27:55,419 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] DETECTED USA CAPITAL. adding patriotic notes!
+2025-07-13 01:27:55,420 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Modified response: {'result': 'washington, d.c.. (Note: It is the capital of the United States of America.)', 'note_added_by_callback': True}
+2025-07-13 01:28:40,627 - before_after_tool.agent - INFO - ===== Tool Execution Started =====
+2025-07-13 01:28:40,627 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Executing tool get_capital_city with args: {'country': 'Merica'}
+2025-07-13 01:28:40,628 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Converting 'merica' to 'United States'
+2025-07-13 01:28:40,628 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Modified arguments: {'country': 'United States'}
+2025-07-13 01:28:40,628 - before_after_tool.agent - INFO - [TOOL] Executing get_capital_city tool with country(United States)
+2025-07-13 01:28:40,628 - before_after_tool.agent - INFO - [TOOL] get_capital_city tool returning result: Washington, D.C.
+2025-07-13 01:28:40,628 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Executed tool get_capital_city with args: {'country': 'United States'}
+2025-07-13 01:28:40,628 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Tool response: {'result': 'Washington, D.C.'}
+2025-07-13 01:28:40,628 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] DETECTED USA CAPITAL. adding patriotic notes!
+2025-07-13 01:28:40,628 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Modified response: {'result': 'washington, d.c.. (Note: It is the capital of the United States of America.)', 'note_added_by_callback': True}
+2025-07-13 01:29:22,577 - before_after_tool.agent - INFO - ===== Tool Execution Started =====
+2025-07-13 01:29:22,577 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Executing tool get_capital_city with args: {'country': 'restricted'}
+2025-07-13 01:29:22,577 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Blocking request for restricted country
+2025-07-13 01:29:22,577 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Executed tool get_capital_city with args: {'country': 'restricted'}
+2025-07-13 01:29:22,578 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Tool response: {'result': 'Access to this information is restricted'}
+2025-07-13 01:29:22,578 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] No modifications made to response
+2025-07-13 01:30:27,386 - before_after_tool.agent - INFO - ===== Tool Execution Started =====
+2025-07-13 01:30:27,386 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Executing tool get_capital_city with args: {'country': 'United States'}
+2025-07-13 01:30:27,387 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Proceeding with the tool get_capital_city
+2025-07-13 01:30:27,387 - before_after_tool.agent - INFO - [TOOL] Executing get_capital_city tool with country(United States)
+2025-07-13 01:30:27,387 - before_after_tool.agent - INFO - [TOOL] get_capital_city tool returning result: Washington, D.C.
+2025-07-13 01:30:27,387 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Executed tool get_capital_city with args: {'country': 'United States'}
+2025-07-13 01:30:27,387 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Tool response: {'result': 'Washington, D.C.'}
+2025-07-13 01:30:27,387 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] DETECTED USA CAPITAL. adding patriotic notes!
+2025-07-13 01:30:27,387 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Modified response: {'result': 'washington, d.c.. (Note: It is the capital of the United States of America.)', 'note_added_by_callback': True}
+2025-07-13 01:31:03,530 - before_after_tool.agent - INFO - ===== Tool Execution Started =====
+2025-07-13 01:31:03,531 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Executing tool get_capital_city with args: {'country': 'France'}
+2025-07-13 01:31:03,531 - before_after_tool.agent - INFO - [BEFORE TOOL CALLBACK] Proceeding with the tool get_capital_city
+2025-07-13 01:31:03,531 - before_after_tool.agent - INFO - [TOOL] Executing get_capital_city tool with country(France)
+2025-07-13 01:31:03,531 - before_after_tool.agent - INFO - [TOOL] get_capital_city tool returning result: Paris
+2025-07-13 01:31:03,531 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Executed tool get_capital_city with args: {'country': 'France'}
+2025-07-13 01:31:03,531 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] Tool response: {'result': 'Paris'}
+2025-07-13 01:31:03,531 - before_after_tool.agent - INFO - [AFTER TOOL CALLBACK] No modifications made to response
+2025-07-13 01:33:37,630 - lead_qualification_agent.agent - INFO - ===== Agent Execution Started =====
+2025-07-13 01:33:37,630 - lead_qualification_agent.agent - INFO - Agent: LeadQualificationAgent
+2025-07-13 01:33:37,630 - lead_qualification_agent.agent - INFO - Timestamp: 2025-07-13 01:33:37
+2025-07-13 01:33:37,630 - lead_qualification_agent.agent - INFO - Workflows proceed to Lead Validator Agent.
+2025-07-13 01:33:37,632 - lead_qualification_agent.subagents.validator.agent - INFO - ===== Agent Execution Started =====
+2025-07-13 01:33:37,632 - lead_qualification_agent.subagents.validator.agent - INFO - Agent: LeadValidatorAgent
+2025-07-13 01:33:37,632 - lead_qualification_agent.subagents.validator.agent - INFO - Timestamp: 2025-07-13 01:33:37
+2025-07-13 01:33:39,431 - lead_qualification_agent.subagents.validator.agent - INFO - ===== Agent Execution Completed =====
+2025-07-13 01:33:39,431 - lead_qualification_agent.subagents.validator.agent - INFO - Agent: LeadValidatorAgent
+2025-07-13 01:33:39,431 - lead_qualification_agent.subagents.validator.agent - INFO - Timestamp: 2025-07-13 01:33:39
+2025-07-13 01:33:39,431 - lead_qualification_agent.subagents.validator.agent - INFO - Workflows proceed to Lead Scorer Agent.
+2025-07-13 01:33:39,433 - lead_qualification_agent.subagents.scorer.agent - INFO - ===== Agent Execution Started =====
+2025-07-13 01:33:39,433 - lead_qualification_agent.subagents.scorer.agent - INFO - Agent: LeadScorerAgent
+2025-07-13 01:33:39,433 - lead_qualification_agent.subagents.scorer.agent - INFO - Timestamp: 2025-07-13 01:33:39
+2025-07-13 01:33:41,916 - lead_qualification_agent.subagents.scorer.agent - INFO - ===== Agent Execution Completed =====
+2025-07-13 01:33:41,916 - lead_qualification_agent.subagents.scorer.agent - INFO - Agent: LeadScorerAgent
+2025-07-13 01:33:41,916 - lead_qualification_agent.subagents.scorer.agent - INFO - Timestamp: 2025-07-13 01:33:41
+2025-07-13 01:33:41,916 - lead_qualification_agent.subagents.scorer.agent - INFO - Workflows proceed to Action Recommender Agent.
+2025-07-13 01:33:41,917 - lead_qualification_agent.subagents.recommender.agent - INFO - ===== Agent Execution Started =====
+2025-07-13 01:33:41,917 - lead_qualification_agent.subagents.recommender.agent - INFO - Agent: ActionRecommenderAgent
+2025-07-13 01:33:41,918 - lead_qualification_agent.subagents.recommender.agent - INFO - Timestamp: 2025-07-13 01:33:41
+2025-07-13 01:33:44,714 - lead_qualification_agent.subagents.recommender.agent - INFO - ===== Agent Execution Completed =====
+2025-07-13 01:33:44,714 - lead_qualification_agent.subagents.recommender.agent - INFO - Agent: ActionRecommenderAgent
+2025-07-13 01:33:44,714 - lead_qualification_agent.subagents.recommender.agent - INFO - Timestamp: 2025-07-13 01:33:44
+2025-07-13 01:33:44,715 - lead_qualification_agent.agent - INFO - ===== Agent Execution Completed =====
+2025-07-13 01:33:44,715 - lead_qualification_agent.agent - INFO - Agent: LeadQualificationAgent
+2025-07-13 01:33:44,715 - lead_qualification_agent.agent - INFO - Timestamp: 2025-07-13 01:33:44
+2025-07-13 01:33:44,715 - lead_qualification_agent.agent - INFO - Total processing time: 7.09 seconds
+2025-07-13 01:34:57,274 - lead_qualification_agent.agent - INFO - ===== Agent Execution Started =====
+2025-07-13 01:34:57,274 - lead_qualification_agent.agent - INFO - Agent: LeadQualificationAgent
+2025-07-13 01:34:57,274 - lead_qualification_agent.agent - INFO - Timestamp: 2025-07-13 01:34:57
+2025-07-13 01:34:57,274 - lead_qualification_agent.agent - INFO - Workflows proceed to Lead Validator Agent.
+2025-07-13 01:34:57,275 - lead_qualification_agent.subagents.validator.agent - INFO - ===== Agent Execution Started =====
+2025-07-13 01:34:57,275 - lead_qualification_agent.subagents.validator.agent - INFO - Agent: LeadValidatorAgent
+2025-07-13 01:34:57,275 - lead_qualification_agent.subagents.validator.agent - INFO - Timestamp: 2025-07-13 01:34:57
+2025-07-13 01:34:59,218 - lead_qualification_agent.subagents.validator.agent - INFO - ===== Agent Execution Completed =====
+2025-07-13 01:34:59,218 - lead_qualification_agent.subagents.validator.agent - INFO - Agent: LeadValidatorAgent
+2025-07-13 01:34:59,218 - lead_qualification_agent.subagents.validator.agent - INFO - Timestamp: 2025-07-13 01:34:59
+2025-07-13 01:34:59,218 - lead_qualification_agent.subagents.validator.agent - INFO - Workflows proceed to Lead Scorer Agent.
+2025-07-13 01:34:59,220 - lead_qualification_agent.subagents.scorer.agent - INFO - ===== Agent Execution Started =====
+2025-07-13 01:34:59,220 - lead_qualification_agent.subagents.scorer.agent - INFO - Agent: LeadScorerAgent
+2025-07-13 01:34:59,220 - lead_qualification_agent.subagents.scorer.agent - INFO - Timestamp: 2025-07-13 01:34:59
+2025-07-13 01:35:01,327 - lead_qualification_agent.subagents.scorer.agent - INFO - ===== Agent Execution Completed =====
+2025-07-13 01:35:01,327 - lead_qualification_agent.subagents.scorer.agent - INFO - Agent: LeadScorerAgent
+2025-07-13 01:35:01,327 - lead_qualification_agent.subagents.scorer.agent - INFO - Timestamp: 2025-07-13 01:35:01
+2025-07-13 01:35:01,327 - lead_qualification_agent.subagents.scorer.agent - INFO - Workflows proceed to Action Recommender Agent.
+2025-07-13 01:35:01,329 - lead_qualification_agent.subagents.recommender.agent - INFO - ===== Agent Execution Started =====
+2025-07-13 01:35:01,329 - lead_qualification_agent.subagents.recommender.agent - INFO - Agent: ActionRecommenderAgent
+2025-07-13 01:35:01,329 - lead_qualification_agent.subagents.recommender.agent - INFO - Timestamp: 2025-07-13 01:35:01
+2025-07-13 01:35:04,121 - lead_qualification_agent.subagents.recommender.agent - INFO - ===== Agent Execution Completed =====
+2025-07-13 01:35:04,121 - lead_qualification_agent.subagents.recommender.agent - INFO - Agent: ActionRecommenderAgent
+2025-07-13 01:35:04,121 - lead_qualification_agent.subagents.recommender.agent - INFO - Timestamp: 2025-07-13 01:35:04
+2025-07-13 01:35:04,123 - lead_qualification_agent.agent - INFO - ===== Agent Execution Completed =====
+2025-07-13 01:35:04,123 - lead_qualification_agent.agent - INFO - Agent: LeadQualificationAgent
+2025-07-13 01:35:04,123 - lead_qualification_agent.agent - INFO - Timestamp: 2025-07-13 01:35:04
+2025-07-13 01:35:04,123 - lead_qualification_agent.agent - INFO - Total processing time: 6.85 seconds

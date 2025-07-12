@@ -18,7 +18,7 @@ from google.adk.models.llm_response import LlmResponse
 from utils.logger import AdkLogger
 
 # Initialize logger
-logger: Logger = AdkLogger.get_logger(module_name=__name__, level=logging.INFO)
+logger: Logger = AdkLogger.setup(module_name=__name__, level=logging.INFO)
 
 
 def before_model_callback(
@@ -67,7 +67,7 @@ def after_model_callback(
     logger.info("===== Agent Execution Completed =====")
     logger.info("Agent: %s", agent_name)
     logger.info("Timestamp: %s", timestamp)
-    logger.info("Workflows proceed to Lead Recommender Agent.")
+    logger.info("Workflows proceed to Action Recommender Agent.")
 
     return None
 
@@ -91,4 +91,6 @@ lead_scorer_agent = LlmAgent(
     """,
     description="Scores qualified leads on a scale of 1-10.",
     output_key="lead_score",
+    before_model_callback=before_model_callback,
+    after_model_callback=after_model_callback,
 )
