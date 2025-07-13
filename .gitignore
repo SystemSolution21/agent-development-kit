@@ -14,3 +14,15 @@ wheels/
 
 # Database file
 *.db
+
+# pytest cache
+.pytest_cache/
+
+# ruff cache
+.ruff_cache/
+
+# uv cache
+.uv_cache/
+
+# vscode cache
+.vscode/
