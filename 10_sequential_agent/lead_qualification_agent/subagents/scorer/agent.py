@@ -6,71 +6,23 @@ based on various criteria.
 """
 
 import logging
-from datetime import datetime
-from logging import Logger
-from typing import Optional
+from typing import Any, Callable
 
 from google.adk.agents import LlmAgent
-from google.adk.agents.callback_context import CallbackContext
-from google.adk.models.llm_request import LlmRequest
-from google.adk.models.llm_response import LlmResponse
 
-from utils.logger import AdkLogger
+from lead_qualification_agent.callbacks import (
+    create_after_model_callback,
+    create_before_model_callback,
+)
 
-# Initialize logger
-logger: Logger = AdkLogger.setup(module_name=__name__, level=logging.INFO)
+# Get logger
+logger: logging.Logger = logging.getLogger(name=f"adk_log.{__name__}")
 
-
-def before_model_callback(
-    callback_context: CallbackContext, llm_request: LlmRequest
-) -> Optional[LlmResponse]:
-    """
-    Simple callback that logs when the agent starts processing a request.
-
-    Args:
-        callback_context: Contains state and context information
-
-    Returns:
-        None
-    """
-
-    # Get agent name
-    agent_name: str = callback_context.agent_name
-    # Timestamp
-    timestamp: str = datetime.now().strftime(format="%Y-%m-%d %H:%M:%S")
-    # Log process start
-    logger.info("===== Agent Execution Started =====")
-    logger.info("Agent: %s", agent_name)
-    logger.info("Timestamp: %s", timestamp)
-
-    return None
-
-
-def after_model_callback(
-    callback_context: CallbackContext, llm_response: LlmResponse
-) -> Optional[LlmResponse]:
-    """
-    Simple callback that logs when the agent finishes processing a request.
-
-    Args:
-        callback_context: Contains state and context information
-
-    Returns:
-        None
-    """
-
-    # Get agent name
-    agent_name: str = callback_context.agent_name
-    # Timestamp
-    timestamp: str = datetime.now().strftime(format="%Y-%m-%d %H:%M:%S")
-    # Log process end
-    logger.info("===== Agent Execution Completed =====")
-    logger.info("Agent: %s", agent_name)
-    logger.info("Timestamp: %s", timestamp)
-    logger.info("Workflows proceed to Action Recommender Agent.")
-
-    return None
-
+# Create callbacks
+before_model_callback: Callable[..., Any] = create_before_model_callback(logger=logger)
+after_model_callback: Callable[..., Any] = create_after_model_callback(
+    logger=logger, next_step_message="Workflows proceed to Action Recommender Agent."
+)
 
 # Create scorer agent
 lead_scorer_agent = LlmAgent(

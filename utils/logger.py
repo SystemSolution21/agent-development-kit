@@ -43,8 +43,9 @@ class AdkLogger:
 
         # Rotating file handler
         if not any(
-            isinstance(h, RotatingFileHandler) and h.baseFilename == str(log_file)
-            for h in logger.handlers
+            isinstance(handler, RotatingFileHandler)
+            and handler.baseFilename == str(log_file)
+            for handler in logger.handlers
         ):
             file_handler: RotatingFileHandler = RotatingFileHandler(
                 filename=log_file,

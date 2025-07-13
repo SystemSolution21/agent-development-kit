@@ -1,0 +1,28 @@
+2025-07-13 19:13:18,182 - adk_log.lead_qualification_agent.agent - INFO - ===== Agent Execution Started =====
+2025-07-13 19:13:18,182 - adk_log.lead_qualification_agent.agent - INFO - Agent: LeadQualificationAgent
+2025-07-13 19:13:18,182 - adk_log.lead_qualification_agent.agent - INFO - Timestamp: 2025-07-13 19:13:18
+2025-07-13 19:13:18,182 - adk_log.lead_qualification_agent.agent - INFO - Workflows proceed to Lead Validator Agent.
+2025-07-13 19:13:18,183 - adk_log.lead_qualification_agent.subagents.validator.agent - INFO - ===== Agent Execution Started =====
+2025-07-13 19:13:18,184 - adk_log.lead_qualification_agent.subagents.validator.agent - INFO - Agent: LeadValidatorAgent
+2025-07-13 19:13:18,184 - adk_log.lead_qualification_agent.subagents.validator.agent - INFO - Timestamp: 2025-07-13 19:13:18
+2025-07-13 19:13:19,694 - adk_log.lead_qualification_agent.subagents.validator.agent - INFO - ===== Agent Execution Completed =====
+2025-07-13 19:13:19,694 - adk_log.lead_qualification_agent.subagents.validator.agent - INFO - Agent: LeadValidatorAgent
+2025-07-13 19:13:19,694 - adk_log.lead_qualification_agent.subagents.validator.agent - INFO - Timestamp: 2025-07-13 19:13:19
+2025-07-13 19:13:19,694 - adk_log.lead_qualification_agent.subagents.validator.agent - INFO - Workflows proceed to Lead Scorer Agent.
+2025-07-13 19:13:19,696 - adk_log.lead_qualification_agent.subagents.scorer.agent - INFO - ===== Agent Execution Started =====
+2025-07-13 19:13:19,696 - adk_log.lead_qualification_agent.subagents.scorer.agent - INFO - Agent: LeadScorerAgent
+2025-07-13 19:13:19,696 - adk_log.lead_qualification_agent.subagents.scorer.agent - INFO - Timestamp: 2025-07-13 19:13:19
+2025-07-13 19:13:21,059 - adk_log.lead_qualification_agent.subagents.scorer.agent - INFO - ===== Agent Execution Completed =====
+2025-07-13 19:13:21,059 - adk_log.lead_qualification_agent.subagents.scorer.agent - INFO - Agent: LeadScorerAgent
+2025-07-13 19:13:21,059 - adk_log.lead_qualification_agent.subagents.scorer.agent - INFO - Timestamp: 2025-07-13 19:13:21
+2025-07-13 19:13:21,060 - adk_log.lead_qualification_agent.subagents.scorer.agent - INFO - Workflows proceed to Action Recommender Agent.
+2025-07-13 19:13:21,061 - adk_log.lead_qualification_agent.subagents.recommender.agent - INFO - ===== Agent Execution Started =====
+2025-07-13 19:13:21,061 - adk_log.lead_qualification_agent.subagents.recommender.agent - INFO - Agent: ActionRecommenderAgent
+2025-07-13 19:13:21,061 - adk_log.lead_qualification_agent.subagents.recommender.agent - INFO - Timestamp: 2025-07-13 19:13:21
+2025-07-13 19:13:23,174 - adk_log.lead_qualification_agent.subagents.recommender.agent - INFO - ===== Agent Execution Completed =====
+2025-07-13 19:13:23,174 - adk_log.lead_qualification_agent.subagents.recommender.agent - INFO - Agent: ActionRecommenderAgent
+2025-07-13 19:13:23,174 - adk_log.lead_qualification_agent.subagents.recommender.agent - INFO - Timestamp: 2025-07-13 19:13:23
+2025-07-13 19:13:23,175 - adk_log.lead_qualification_agent.agent - INFO - ===== Agent Execution Completed =====
+2025-07-13 19:13:23,175 - adk_log.lead_qualification_agent.agent - INFO - Agent: LeadQualificationAgent
+2025-07-13 19:13:23,176 - adk_log.lead_qualification_agent.agent - INFO - Timestamp: 2025-07-13 19:13:23
+2025-07-13 19:13:23,176 - adk_log.lead_qualification_agent.agent - INFO - Total processing time: 4.99 seconds
