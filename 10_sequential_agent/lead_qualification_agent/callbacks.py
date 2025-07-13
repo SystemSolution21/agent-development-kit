@@ -1,6 +1,4 @@
-"""
-Shared callback functions for lead qualification subagents.
-"""
+"""Callbacks for logging agent and model execution."""
 
 import logging
 from datetime import datetime
@@ -15,12 +13,13 @@ from google.adk.sessions.state import State
 def create_before_model_callback(
     logger: logging.Logger, next_step_message: str = ""
 ) -> Callable:
-    """Factory to create a pre-execution logging Before Model callback."""
+    """Pre-execution logging for Before Model Callback."""
 
     def before_model_callback(
         callback_context: CallbackContext, llm_request: LlmRequest
     ) -> Optional[LlmResponse]:
         """Logs agent execution start."""
+
         agent_name: str = callback_context.agent_name
         timestamp: str = datetime.now().strftime(format="%Y-%m-%d %H:%M:%S")
         logger.info("===== Agent Execution Started =====")
@@ -43,12 +42,13 @@ def create_before_model_callback(
 def create_after_model_callback(
     logger: logging.Logger, next_step_message: str = ""
 ) -> Callable:
-    """Factory to create a post-execution logging After Model Callback."""
+    """Post-execution logging for After Model Callback."""
 
     def after_model_callback(
         callback_context: CallbackContext, llm_response: LlmResponse
     ) -> Optional[LlmResponse]:
         """Logs agent execution completion."""
+
         agent_name: str = callback_context.agent_name
         timestamp: str = datetime.now().strftime(format="%Y-%m-%d %H:%M:%S")
         logger.info("===== Agent Execution Completed =====")
@@ -64,11 +64,13 @@ def create_after_model_callback(
 def create_before_agent_callback(
     logger: logging.Logger, next_step_message: str = ""
 ) -> Callable:
-    """Factory to create a pre-execution logging callback for Before Agent Callback."""
+    """Pre-execution logging for Before Agent Callback."""
 
     def before_agent_callback(
         callback_context: CallbackContext,
     ) -> Optional[LlmResponse]:
+        """Logs agent execution start."""
+
         agent_name: str = callback_context.agent_name
         timestamp: str = datetime.now().strftime(format="%Y-%m-%d %H:%M:%S")
         logger.info("===== Agent Execution Started =====")
@@ -86,9 +88,11 @@ def create_before_agent_callback(
 def create_after_agent_callback(
     logger: logging.Logger, next_step_message: str = ""
 ) -> Callable:
-    """Factory to create a post-execution logging callback for After Agent Callback."""
+    """Post-execution logging for After Agent Callback."""
 
     def after_agent_callback(callback_context: CallbackContext) -> None:
+        """Logs agent execution completion."""
+
         state: State = callback_context.state
         agent_name: str = callback_context.agent_name
         timestamp: datetime = datetime.now()
