@@ -2,7 +2,7 @@
 
 from google.adk.agents import SequentialAgent
 
-from .sub_agents.agent import (
+from .subagents.agent import (
     code_refactor_agent,
     code_reviewer_agent,
     code_writer_agent,
