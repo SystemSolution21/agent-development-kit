@@ -1,0 +1,14 @@
+2025-07-15 23:03:07,428 - system_monitor.system_monitor_agent.agent - INFO - ===== Agent Execution Started =====
+2025-07-15 23:03:07,428 - system_monitor.system_monitor_agent.agent - INFO - Agent: SystemMonitorAgent
+2025-07-15 23:03:07,428 - system_monitor.system_monitor_agent.agent - INFO - Timestamp: 2025-07-15 23:03:07
+2025-07-15 23:03:07,428 - system_monitor.system_monitor_agent.agent - INFO - Workflows proceed to System Info Collector Agent.
+2025-07-15 23:03:10,065 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - ===== Tool Execution Started =====
+2025-07-15 23:03:10,066 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - Tool: get_cpu_info
+2025-07-15 23:03:10,066 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - Timestamp: 2025-07-15 23:03:10
+2025-07-15 23:03:12,068 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - ===== Tool Execution Completed =====
+2025-07-15 23:03:12,068 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - Tool: get_cpu_info
+2025-07-15 23:03:12,068 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - Timestamp: 2025-07-15 23:03:12
+2025-07-15 23:03:16,694 - system_monitor.system_monitor_agent.agent - INFO - ===== Agent Execution Completed =====
+2025-07-15 23:03:16,695 - system_monitor.system_monitor_agent.agent - INFO - Agent: SystemMonitorAgent
+2025-07-15 23:03:16,695 - system_monitor.system_monitor_agent.agent - INFO - Timestamp: 2025-07-15 23:03:16
+2025-07-15 23:03:16,695 - system_monitor.system_monitor_agent.agent - INFO - Total processing time: 9.27 seconds
