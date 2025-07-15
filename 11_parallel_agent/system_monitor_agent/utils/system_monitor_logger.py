@@ -1,5 +1,5 @@
 """
-Logging configuration module for the ADK application.
+Logging configuration module for the System Monitor Application.
 Provides a centralized function to configure logging for the application.
 """
 
@@ -7,12 +7,12 @@ import logging
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
-_ADK_LOGGER_SETUP_DONE = False
+_LOGGER_SETUP_DONE = False
 
 
-def setup_adk_logging(level: int = logging.INFO, log_to_console: bool = False) -> None:
+def setup_logging(level: int = logging.INFO, log_to_console: bool = False) -> None:
     """
-    Configures the root 'adk_log' logger. Should be called once at startup.
+    Configures the root 'system_monitor' logger. Should be called once at startup.
 
     This function is idempotent and will not add handlers more than once.
 
@@ -20,12 +20,12 @@ def setup_adk_logging(level: int = logging.INFO, log_to_console: bool = False) -
         level: The minimum logging level to capture (e.g., logging.INFO).
         log_to_console: If True, logs will also be sent to the console.
     """
-    global _ADK_LOGGER_SETUP_DONE
-    if _ADK_LOGGER_SETUP_DONE:
+    global _LOGGER_SETUP_DONE
+    if _LOGGER_SETUP_DONE:
         return
 
     # Single top-level logger for the application
-    logger: logging.Logger = logging.getLogger(name="adk_log")
+    logger: logging.Logger = logging.getLogger(name="system_monitor")
     logger.setLevel(level=level)
     # Prevent messages from propagating to the root logger
     logger.propagate = False
@@ -34,7 +34,7 @@ def setup_adk_logging(level: int = logging.INFO, log_to_console: bool = False) -
     current_dir: Path = Path(__file__).parent.parent.resolve()
     logs_dir: Path = current_dir / "logs"
     logs_dir.mkdir(exist_ok=True)
-    log_file: Path = logs_dir / "adk.log"
+    log_file: Path = logs_dir / "system_monitor.log"
 
     formatter = logging.Formatter(
         fmt="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -52,8 +52,8 @@ def setup_adk_logging(level: int = logging.INFO, log_to_console: bool = False) -
 
     # Console handler
     if log_to_console:
-        console_handler = logging.StreamHandler()
-        console_handler.setFormatter(formatter)
+        console_handler: logging.StreamHandler = logging.StreamHandler()
+        console_handler.setFormatter(fmt=formatter)
         logger.addHandler(hdlr=console_handler)
 
-    _ADK_LOGGER_SETUP_DONE = True
+    _LOGGER_SETUP_DONE = True
