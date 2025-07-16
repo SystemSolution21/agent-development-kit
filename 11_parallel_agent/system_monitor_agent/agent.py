@@ -24,7 +24,8 @@ logger: logging.Logger = logging.getLogger(name=f"system_monitor.{__name__}")
 
 # Create callbacks
 before_agent_callback: Callable[..., Any] = create_before_agent_callback(
-    logger=logger, next_step_message="Workflows proceed to System Info Collector Agent."
+    logger=logger,
+    next_step_message="Workflows proceed to System Info Collector Parallel Agent.",
 )
 
 after_agent_callback: Callable[..., Any] = create_after_agent_callback(logger=logger)

@@ -9,8 +9,13 @@ from typing import Any
 import psutil
 
 
-def get_cpu_info() -> dict[str, Any] | None:
-    pass
+def get_cpu_info() -> dict[str, Any]:
+    """
+    Collect CPU information including core counts and usage statistics.
+    Returns:
+        dict[str, Any]:
+            A dictionary containing CPU information.
+    """
     try:
         # Get CPU information
         cpu_info: dict[str, Any] = {

@@ -108,6 +108,12 @@ def create_after_model_callback(
         logger.info("Timestamp: %s", timestamp)
         if next_step_message:
             logger.info(next_step_message)
+        if "cpu_info" in callback_context.state:
+            logger.info("CPU Information: %s", callback_context.state["cpu_info"])
+        if "memory_info" in callback_context.state:
+            logger.info("Memory Information: %s", callback_context.state["memory_info"])
+        if "disk_info" in callback_context.state:
+            logger.info("Disk Information: %s", callback_context.state["disk_info"])
         return None
 
     return after_model_callback
@@ -154,6 +160,7 @@ def create_after_tool_callback(
         logger.info("===== Tool Execution Completed =====")
         logger.info("Tool: %s", tool_name)
         logger.info("Timestamp: %s", timestamp)
+        logger.info("Tool Response: %s", tool_response)
 
         return tool_response
 

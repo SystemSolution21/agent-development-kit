@@ -1,14 +1,88 @@
-2025-07-15 23:03:07,428 - system_monitor.system_monitor_agent.agent - INFO - ===== Agent Execution Started =====
-2025-07-15 23:03:07,428 - system_monitor.system_monitor_agent.agent - INFO - Agent: SystemMonitorAgent
-2025-07-15 23:03:07,428 - system_monitor.system_monitor_agent.agent - INFO - Timestamp: 2025-07-15 23:03:07
-2025-07-15 23:03:07,428 - system_monitor.system_monitor_agent.agent - INFO - Workflows proceed to System Info Collector Agent.
-2025-07-15 23:03:10,065 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - ===== Tool Execution Started =====
-2025-07-15 23:03:10,066 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - Tool: get_cpu_info
-2025-07-15 23:03:10,066 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - Timestamp: 2025-07-15 23:03:10
-2025-07-15 23:03:12,068 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - ===== Tool Execution Completed =====
-2025-07-15 23:03:12,068 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - Tool: get_cpu_info
-2025-07-15 23:03:12,068 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - Timestamp: 2025-07-15 23:03:12
-2025-07-15 23:03:16,694 - system_monitor.system_monitor_agent.agent - INFO - ===== Agent Execution Completed =====
-2025-07-15 23:03:16,695 - system_monitor.system_monitor_agent.agent - INFO - Agent: SystemMonitorAgent
-2025-07-15 23:03:16,695 - system_monitor.system_monitor_agent.agent - INFO - Timestamp: 2025-07-15 23:03:16
-2025-07-15 23:03:16,695 - system_monitor.system_monitor_agent.agent - INFO - Total processing time: 9.27 seconds
+2025-07-16 21:05:40,000 - system_monitor.system_monitor_agent.agent - INFO - ===== Agent Execution Started =====
+2025-07-16 21:05:40,000 - system_monitor.system_monitor_agent.agent - INFO - Agent: SystemMonitorAgent
+2025-07-16 21:05:40,000 - system_monitor.system_monitor_agent.agent - INFO - Timestamp: 2025-07-16 21:05:40
+2025-07-16 21:05:40,000 - system_monitor.system_monitor_agent.agent - INFO - Workflows proceed to System Info Collector Parallel Agent.
+2025-07-16 21:05:43,492 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - ===== Tool Execution Started =====
+2025-07-16 21:05:43,492 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - Tool: get_cpu_info
+2025-07-16 21:05:43,492 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - Timestamp: 2025-07-16 21:05:43
+2025-07-16 21:05:45,494 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - ===== Tool Execution Completed =====
+2025-07-16 21:05:45,494 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - Tool: get_cpu_info
+2025-07-16 21:05:45,494 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - Timestamp: 2025-07-16 21:05:45
+2025-07-16 21:05:45,494 - system_monitor.system_monitor_agent.subagents.cpu_info_agent.agent - INFO - Tool Response: {'result': {'physical_cores': 8, 'logical_cores': 16, 'cpu_usage_per_core': ['Core 0: 25.4%', 'Core 1: 18.5%', 'Core 2: 21.2%', 'Core 3: 11.1%', 'Core 4: 14.1%', 'Core 5: 11.3%', 'Core 6: 7.9%', 'Core 7: 4.8%', 'Core 8: 0.0%', 'Core 9: 0.0%', 'Core 10: 0.0%', 'Core 11: 0.0%', 'Core 12: 0.0%', 'Core 13: 0.0%', 'Core 14: 0.0%', 'Core 15: 0.0%'], 'avg_cpu_usage': '5.1%'}, 'stats': {'physical_cores': 8, 'logical_cores': 16, 'avg_usage_percent': 5.1, 'high_usage_alert': False}, 'additional_info': {'data_structure': 'dictionary', 'collection_timestamp': 1752667545.494145, 'performance_concerns': None}}
+2025-07-16 21:05:46,018 - system_monitor.system_monitor_agent.subagents.memory_info_agent.agent - INFO - ===== Tool Execution Started =====
+2025-07-16 21:05:46,018 - system_monitor.system_monitor_agent.subagents.memory_info_agent.agent - INFO - Tool: get_memory_info
+2025-07-16 21:05:46,018 - system_monitor.system_monitor_agent.subagents.memory_info_agent.agent - INFO - Timestamp: 2025-07-16 21:05:46
+2025-07-16 21:05:46,464 - system_monitor.system_monitor_agent.subagents.memory_info_agent.agent - INFO - ===== Tool Execution Completed =====
+2025-07-16 21:05:46,464 - system_monitor.system_monitor_agent.subagents.memory_info_agent.agent - INFO - Tool: get_memory_info
+2025-07-16 21:05:46,464 - system_monitor.system_monitor_agent.subagents.memory_info_agent.agent - INFO - Timestamp: 2025-07-16 21:05:46
+2025-07-16 21:05:46,464 - system_monitor.system_monitor_agent.subagents.memory_info_agent.agent - INFO - Tool Response: {'result': {'total_memory': '31.31 GB', 'available_memory': '17.94 GB', 'used_memory': '13.36 GB', 'memory_percent_used': '42.7%', 'swap_total': '2.00 GB', 'swap_used': '0.00 GB', 'swap_percent_used': '0.0%'}, 'stats': {'memory_usage_percent': 42.7, 'swap_usage_percent': 0.0, 'total_memory_gb': 31.309436798095703, 'available_memory_gb': 17.94472885131836}, 'additional_info': {'data_structure': 'dictionary', 'collection_timestamp': 1752667546.4641874, 'performance_concerns': None}}
+2025-07-16 21:05:46,465 - system_monitor.system_monitor_agent.subagents.disk_info_agent.agent - INFO - ===== Tool Execution Started =====
+2025-07-16 21:05:46,465 - system_monitor.system_monitor_agent.subagents.disk_info_agent.agent - INFO - Tool: get_disk_info
+2025-07-16 21:05:46,465 - system_monitor.system_monitor_agent.subagents.disk_info_agent.agent - INFO - Timestamp: 2025-07-16 21:05:46
+2025-07-16 21:05:46,466 - system_monitor.system_monitor_agent.subagents.disk_info_agent.agent - INFO - ===== Tool Execution Completed =====
+2025-07-16 21:05:46,466 - system_monitor.system_monitor_agent.subagents.disk_info_agent.agent - INFO - Tool: get_disk_info
+2025-07-16 21:05:46,466 - system_monitor.system_monitor_agent.subagents.disk_info_agent.agent - INFO - Timestamp: 2025-07-16 21:05:46
+2025-07-16 21:05:46,466 - system_monitor.system_monitor_agent.subagents.disk_info_agent.agent - INFO - Tool Response: {'result': {'partitions': [{'device': 'C:\\', 'mountpoint': 'C:\\', 'filesystem_type': 'NTFS', 'total_size': '951.65 GB', 'used_size': '240.83 GB', 'free_size': '710.82 GB', 'usage_percent': '25.3%'}]}, 'stats': {'partition_count': 1, 'total_space_bg': '951.65 GB', 'used_space_bg': '240.83 GB', 'overall_usage_percent': 25.306628410241323, 'partitions_with_high_usage': 0}, 'additional_info': {'data_structure': 'dictionary', 'collection_timestamp': 1752667546.4664671, 'high_usage_partitions': None}}
+2025-07-16 21:05:49,721 - system_monitor.system_monitor_agent.subagents.synthesizer_agent.agent - INFO - ===== Agent Execution Started =====
+2025-07-16 21:05:49,721 - system_monitor.system_monitor_agent.subagents.synthesizer_agent.agent - INFO - Agent: SynthesizerAgent
+2025-07-16 21:05:49,721 - system_monitor.system_monitor_agent.subagents.synthesizer_agent.agent - INFO - Timestamp: 2025-07-16 21:05:49
+2025-07-16 21:05:49,721 - system_monitor.system_monitor_agent.subagents.synthesizer_agent.agent - INFO - Synthesizing CPU, Memory and Disk information...
+2025-07-16 21:05:54,188 - system_monitor.system_monitor_agent.subagents.synthesizer_agent.agent - INFO - ===== Agent Execution Completed =====
+2025-07-16 21:05:54,188 - system_monitor.system_monitor_agent.subagents.synthesizer_agent.agent - INFO - Agent: SynthesizerAgent
+2025-07-16 21:05:54,188 - system_monitor.system_monitor_agent.subagents.synthesizer_agent.agent - INFO - Timestamp: 2025-07-16 21:05:54
+2025-07-16 21:05:54,188 - system_monitor.system_monitor_agent.subagents.synthesizer_agent.agent - INFO - CPU Information: ## CPU System Report
+
+This section provides an overview of the current CPU status:
+
+**Core Information:**
+
+*   The system has 8 physical cores and 16 logical cores.
+
+**Usage Statistics:**
+
+*   The average CPU usage across all cores is 5.1%.
+*   Individual core usage varies, with a maximum observed usage of 25.4% on Core 0.
+
+**Performance Concerns:**
+
+*   The CPU usage is within acceptable limits, and no immediate performance concerns are detected.
+
+2025-07-16 21:05:54,188 - system_monitor.system_monitor_agent.subagents.synthesizer_agent.agent - INFO - Memory Information: ### Memory Information
+
+**Total Memory:** 31.31 GB
+**Available Memory:** 17.94 GB
+
+**Memory Usage:** 42.7%
+
+**Swap Memory:**
+  - Total: 2.00 GB
+  - Used: 0.00 GB
+  - Usage: 0.0%
+
+**Performance Concerns:**
+  - None. Memory usage is below 80%.
+
+2025-07-16 21:05:54,188 - system_monitor.system_monitor_agent.subagents.synthesizer_agent.agent - INFO - Disk Information: ## Disk Information Report
+
+**Partition Information:**
+
+*   **Drive C:** (NTFS)
+    *   Total Size: 951.65 GB
+    *   Used Space: 240.83 GB
+    *   Free Space: 710.82 GB
+    *   Usage: 25.3%
+
+**Overall Storage:**
+
+*   Total Space: 951.65 GB
+*   Used Space: 240.83 GB
+*   Overall Usage: 25.3%
+
+**Concerns:**
+
+*   No partitions are currently experiencing high usage (above 85%).
+
+2025-07-16 21:05:54,189 - system_monitor.system_monitor_agent.agent - INFO - ===== Agent Execution Completed =====
+2025-07-16 21:05:54,189 - system_monitor.system_monitor_agent.agent - INFO - Agent: SystemMonitorAgent
+2025-07-16 21:05:54,189 - system_monitor.system_monitor_agent.agent - INFO - Timestamp: 2025-07-16 21:05:54
+2025-07-16 21:05:54,189 - system_monitor.system_monitor_agent.agent - INFO - Total processing time: 14.19 seconds
