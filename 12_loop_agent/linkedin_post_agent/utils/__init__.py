@@ -6,7 +6,7 @@ from .callbacks import (
     create_before_model_callback,
     create_before_tool_callback,
 )
-from .system_monitor_logger import setup_logging
+from .linkedin_post_generation_logger import setup_logging
 
 __all__: list[str] = [
     "setup_logging",

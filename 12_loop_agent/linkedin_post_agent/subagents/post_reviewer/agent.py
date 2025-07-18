@@ -4,10 +4,21 @@ LinkedIn Post Reviewer Agent
 This agent reviews LinkedIn posts for quality and provides feedback.
 """
 
+import logging
+from typing import Any, Callable
+
 from google.adk.agents.llm_agent import LlmAgent
 
 from ...constant import GEMINI_MODEL
+from ...utils.callbacks import create_after_tool_callback, create_before_tool_callback
 from .tools import count_characters, exit_loop
+
+# Initialize logger
+logger: logging.Logger = logging.getLogger(name=f"linkedin_post_generation.{__name__}")
+
+# Create callbacks
+before_tool_callback: Callable[..., Any] = create_before_tool_callback(logger=logger)
+after_tool_callback: Callable[..., Any] = create_after_tool_callback(logger=logger)
 
 # Define the Post Reviewer Agent
 post_reviewer = LlmAgent(
@@ -55,4 +66,6 @@ post_reviewer = LlmAgent(
     description="Reviews post quality and provides feedback on what to improve or exits the loop if requirements are met",
     tools=[count_characters, exit_loop],
     output_key="review_feedback",
+    before_tool_callback=before_tool_callback,
+    after_tool_callback=after_tool_callback,
 )
