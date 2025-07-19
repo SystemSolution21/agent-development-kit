@@ -12,11 +12,11 @@ from google.adk.sessions.state import State
 from google.adk.tools.base_tool import BaseTool
 from google.adk.tools.tool_context import ToolContext
 
-# Create documentation directory
+# Create posts directory
 current_dir: Path = Path(__file__).parent.parent.resolve()
-docs_dir: Path = current_dir / "docs"
-docs_dir.mkdir(exist_ok=True)
-doc_file: Path = docs_dir / "linkedin_post_generation.md"
+posts_dir: Path = current_dir / "posts"
+posts_dir.mkdir(exist_ok=True)
+post_file: Path = posts_dir / "linkedin_post.txt"
 
 
 def create_before_agent_callback(
@@ -59,6 +59,16 @@ def create_after_agent_callback(
         logger.info("Timestamp: %s", timestamp.strftime(format="%Y-%m-%d %H:%M:%S"))
         if next_step_message:
             logger.info(next_step_message)
+
+        # Write linkedIn post to file
+        if (
+            state.get("escalate") is True
+            and agent_name == "LinkedInPostGenerationPipeline"
+        ):
+            logger.info("Writing LinkedIn post to file: %s", post_file.name)
+            with open(file=post_file, mode="w", encoding="utf-8") as f:
+                f.write(state["current_post"])
+
         if "start_time" in state and agent_name == "LinkedInPostGenerationPipeline":
             logger.info(
                 "Total processing time: %.2f seconds",
@@ -115,12 +125,6 @@ def create_after_model_callback(
         logger.info("Timestamp: %s", timestamp)
         if next_step_message:
             logger.info(next_step_message)
-
-        # # Write linkedIn post to file
-        # with open(doc_file, "w") as f:
-        #     if llm_response and llm_response.content and llm_response.content.parts:
-        #         if isinstance(llm_response.content.parts[0].text, str):
-        #             f.write(llm_response.content.parts[0].text)
 
         return None
 

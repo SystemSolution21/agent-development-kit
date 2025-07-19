@@ -81,5 +81,11 @@ def exit_loop(tool_context: ToolContext) -> dict[Any, Any]:
     logger.info(
         msg="Post review completed successfully. Exiting the refinement loop now."
     )
+    # Set escalate to True to stop the LoopAgent
     tool_context.actions.escalate = True
+
+    # Set escalate to True in the state
+    tool_context.state["escalate"] = True
+
+    # Return empty dictionary
     return {}

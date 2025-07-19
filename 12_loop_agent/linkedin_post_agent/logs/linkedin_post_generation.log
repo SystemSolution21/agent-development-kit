@@ -1,48 +1,76 @@
-2025-07-18 23:55:30,677 - linkedin_post_generation.linkedin_post_agent.agent - INFO - ===== Agent Execution Started =====
-2025-07-18 23:55:30,678 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Agent: LinkedInPostGenerationPipeline
-2025-07-18 23:55:30,678 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Timestamp: 2025-07-18 23:55:30
-2025-07-18 23:55:30,678 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Workflows proceed to LinkedIn Initial Post Generator.
-2025-07-18 23:55:30,679 - linkedin_post_generation.linkedin_post_agent.subagents.post_generator.agent - INFO - ===== Agent Execution Started =====
-2025-07-18 23:55:30,679 - linkedin_post_generation.linkedin_post_agent.subagents.post_generator.agent - INFO - Agent: InitialPostGenerator
-2025-07-18 23:55:30,679 - linkedin_post_generation.linkedin_post_agent.subagents.post_generator.agent - INFO - Timestamp: 2025-07-18 23:55:30
-2025-07-18 23:55:30,679 - linkedin_post_generation.linkedin_post_agent.subagents.post_generator.agent - INFO - Generating initial LinkedIn post...
-2025-07-18 23:55:33,955 - linkedin_post_generation.linkedin_post_agent.subagents.post_generator.agent - INFO - ===== Agent Execution Completed =====
-2025-07-18 23:55:33,955 - linkedin_post_generation.linkedin_post_agent.subagents.post_generator.agent - INFO - Agent: InitialPostGenerator
-2025-07-18 23:55:33,955 - linkedin_post_generation.linkedin_post_agent.subagents.post_generator.agent - INFO - Timestamp: 2025-07-18 23:55:33
-2025-07-18 23:55:33,956 - linkedin_post_generation.linkedin_post_agent.agent - INFO - ===== Agent Execution Started =====
-2025-07-18 23:55:33,956 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Agent: PostRefinementLoop
-2025-07-18 23:55:33,956 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Timestamp: 2025-07-18 23:55:33
-2025-07-18 23:55:33,956 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Workflows proceed to LinkedIn Post Reviewer Agent.
-2025-07-18 23:55:36,516 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - ===== Tool Execution Started =====
-2025-07-18 23:55:36,516 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool: count_characters
-2025-07-18 23:55:36,516 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Timestamp: 2025-07-18 23:55:36
-2025-07-18 23:55:36,516 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - ---Executing count_characters tool---
-2025-07-18 23:55:36,516 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - Checking post length: 1007 characters
-2025-07-18 23:55:36,516 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - Post length is within the required range.
-2025-07-18 23:55:36,516 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - ===== Tool Execution Completed =====
-2025-07-18 23:55:36,516 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool: count_characters
-2025-07-18 23:55:36,516 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Timestamp: 2025-07-18 23:55:36
-2025-07-18 23:55:36,517 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool Response: pass...
-2025-07-18 23:55:38,269 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - ===== Agent Execution Started =====
-2025-07-18 23:55:38,269 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - Agent: PostRefinerAgent
-2025-07-18 23:55:38,269 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - Timestamp: 2025-07-18 23:55:38
-2025-07-18 23:55:38,269 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - Refining LinkedIn post based on review feedback...
-2025-07-18 23:55:40,821 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - ===== Agent Execution Completed =====
-2025-07-18 23:55:40,822 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - Agent: PostRefinerAgent
-2025-07-18 23:55:40,822 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - Timestamp: 2025-07-18 23:55:40
-2025-07-18 23:55:42,253 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - ===== Tool Execution Started =====
-2025-07-18 23:55:42,253 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool: exit_loop
-2025-07-18 23:55:42,253 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Timestamp: 2025-07-18 23:55:42
-2025-07-18 23:55:42,254 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - ---Executing exit_loop tool---
-2025-07-18 23:55:42,254 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - Post review completed successfully. Exiting the refinement loop now.
-2025-07-18 23:55:42,254 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - ===== Tool Execution Completed =====
-2025-07-18 23:55:42,254 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool: exit_loop
-2025-07-18 23:55:42,254 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Timestamp: 2025-07-18 23:55:42
-2025-07-18 23:55:42,254 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool Response: {}...
-2025-07-18 23:55:42,255 - linkedin_post_generation.linkedin_post_agent.agent - INFO - ===== Agent Execution Completed =====
-2025-07-18 23:55:42,255 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Agent: PostRefinementLoop
-2025-07-18 23:55:42,255 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Timestamp: 2025-07-18 23:55:42
-2025-07-18 23:55:42,255 - linkedin_post_generation.linkedin_post_agent.agent - INFO - ===== Agent Execution Completed =====
-2025-07-18 23:55:42,255 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Agent: LinkedInPostGenerationPipeline
-2025-07-18 23:55:42,255 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Timestamp: 2025-07-18 23:55:42
-2025-07-18 23:55:42,255 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Total processing time: 11.58 seconds
+2025-07-19 20:32:23,983 - linkedin_post_generation.linkedin_post_agent.agent - INFO - ===== Agent Execution Started =====
+2025-07-19 20:32:23,983 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Agent: LinkedInPostGenerationPipeline
+2025-07-19 20:32:23,984 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Timestamp: 2025-07-19 20:32:23
+2025-07-19 20:32:23,984 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Workflows proceed to LinkedIn Initial Post Generator.
+2025-07-19 20:32:23,984 - linkedin_post_generation.linkedin_post_agent.subagents.post_generator.agent - INFO - ===== Agent Execution Started =====
+2025-07-19 20:32:23,984 - linkedin_post_generation.linkedin_post_agent.subagents.post_generator.agent - INFO - Agent: InitialPostGenerator
+2025-07-19 20:32:23,984 - linkedin_post_generation.linkedin_post_agent.subagents.post_generator.agent - INFO - Timestamp: 2025-07-19 20:32:23
+2025-07-19 20:32:23,984 - linkedin_post_generation.linkedin_post_agent.subagents.post_generator.agent - INFO - Generating initial LinkedIn post...
+2025-07-19 20:32:26,521 - linkedin_post_generation.linkedin_post_agent.subagents.post_generator.agent - INFO - ===== Agent Execution Completed =====
+2025-07-19 20:32:26,521 - linkedin_post_generation.linkedin_post_agent.subagents.post_generator.agent - INFO - Agent: InitialPostGenerator
+2025-07-19 20:32:26,521 - linkedin_post_generation.linkedin_post_agent.subagents.post_generator.agent - INFO - Timestamp: 2025-07-19 20:32:26
+2025-07-19 20:32:26,522 - linkedin_post_generation.linkedin_post_agent.agent - INFO - ===== Agent Execution Started =====
+2025-07-19 20:32:26,522 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Agent: PostRefinementLoop
+2025-07-19 20:32:26,522 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Timestamp: 2025-07-19 20:32:26
+2025-07-19 20:32:26,522 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Workflows proceed to LinkedIn Post Reviewer Agent.
+2025-07-19 20:32:28,885 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - ===== Tool Execution Started =====
+2025-07-19 20:32:28,885 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool: count_characters
+2025-07-19 20:32:28,885 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Timestamp: 2025-07-19 20:32:28
+2025-07-19 20:32:28,885 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - ---Executing count_characters tool---
+2025-07-19 20:32:28,885 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - Checking post length: 820 characters
+2025-07-19 20:32:28,885 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - Post is too short. Add 180 more characters to reach minimum length of1000.
+2025-07-19 20:32:28,885 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - ===== Tool Execution Completed =====
+2025-07-19 20:32:28,885 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool: count_characters
+2025-07-19 20:32:28,885 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Timestamp: 2025-07-19 20:32:28
+2025-07-19 20:32:28,885 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool Response: fail...
+2025-07-19 20:32:31,030 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - ===== Agent Execution Started =====
+2025-07-19 20:32:31,030 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - Agent: PostRefinerAgent
+2025-07-19 20:32:31,031 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - Timestamp: 2025-07-19 20:32:31
+2025-07-19 20:32:31,031 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - Refining LinkedIn post based on review feedback...
+2025-07-19 20:32:34,313 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - ===== Agent Execution Completed =====
+2025-07-19 20:32:34,314 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - Agent: PostRefinerAgent
+2025-07-19 20:32:34,314 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - Timestamp: 2025-07-19 20:32:34
+2025-07-19 20:32:37,896 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - ===== Tool Execution Started =====
+2025-07-19 20:32:37,897 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool: count_characters
+2025-07-19 20:32:37,897 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Timestamp: 2025-07-19 20:32:37
+2025-07-19 20:32:37,897 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - ---Executing count_characters tool---
+2025-07-19 20:32:37,897 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - Checking post length: 1914 characters
+2025-07-19 20:32:37,897 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - Post is too long. Remove 414 characters to meet the maximum length of 1500.
+2025-07-19 20:32:37,897 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - ===== Tool Execution Completed =====
+2025-07-19 20:32:37,897 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool: count_characters
+2025-07-19 20:32:37,897 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Timestamp: 2025-07-19 20:32:37
+2025-07-19 20:32:37,897 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool Response: fail...
+2025-07-19 20:32:40,267 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - ===== Agent Execution Started =====
+2025-07-19 20:32:40,267 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - Agent: PostRefinerAgent
+2025-07-19 20:32:40,267 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - Timestamp: 2025-07-19 20:32:40
+2025-07-19 20:32:40,267 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - Refining LinkedIn post based on review feedback...
+2025-07-19 20:32:43,072 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - ===== Agent Execution Completed =====
+2025-07-19 20:32:43,072 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - Agent: PostRefinerAgent
+2025-07-19 20:32:43,072 - linkedin_post_generation.linkedin_post_agent.subagents.post_refiner.agent - INFO - Timestamp: 2025-07-19 20:32:43
+2025-07-19 20:32:45,878 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - ===== Tool Execution Started =====
+2025-07-19 20:32:45,878 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool: count_characters
+2025-07-19 20:32:45,878 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Timestamp: 2025-07-19 20:32:45
+2025-07-19 20:32:45,878 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - ---Executing count_characters tool---
+2025-07-19 20:32:45,878 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - Checking post length: 1307 characters
+2025-07-19 20:32:45,878 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - Post length is within the required range.
+2025-07-19 20:32:45,878 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - ===== Tool Execution Completed =====
+2025-07-19 20:32:45,878 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool: count_characters
+2025-07-19 20:32:45,878 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Timestamp: 2025-07-19 20:32:45
+2025-07-19 20:32:45,878 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool Response: pass...
+2025-07-19 20:32:47,414 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - ===== Tool Execution Started =====
+2025-07-19 20:32:47,414 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool: exit_loop
+2025-07-19 20:32:47,414 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Timestamp: 2025-07-19 20:32:47
+2025-07-19 20:32:47,414 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - ---Executing exit_loop tool---
+2025-07-19 20:32:47,414 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.tools - INFO - Post review completed successfully. Exiting the refinement loop now.
+2025-07-19 20:32:47,414 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - ===== Tool Execution Completed =====
+2025-07-19 20:32:47,414 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool: exit_loop
+2025-07-19 20:32:47,415 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Timestamp: 2025-07-19 20:32:47
+2025-07-19 20:32:47,415 - linkedin_post_generation.linkedin_post_agent.subagents.post_reviewer.agent - INFO - Tool Response: {}...
+2025-07-19 20:32:47,417 - linkedin_post_generation.linkedin_post_agent.agent - INFO - ===== Agent Execution Completed =====
+2025-07-19 20:32:47,417 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Agent: PostRefinementLoop
+2025-07-19 20:32:47,417 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Timestamp: 2025-07-19 20:32:47
+2025-07-19 20:32:47,418 - linkedin_post_generation.linkedin_post_agent.agent - INFO - ===== Agent Execution Completed =====
+2025-07-19 20:32:47,418 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Agent: LinkedInPostGenerationPipeline
+2025-07-19 20:32:47,418 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Timestamp: 2025-07-19 20:32:47
+2025-07-19 20:32:47,419 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Writing LinkedIn post to file: linkedin_post.txt
+2025-07-19 20:32:47,420 - linkedin_post_generation.linkedin_post_agent.agent - INFO - Total processing time: 23.43 seconds
