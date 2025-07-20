@@ -4,8 +4,8 @@ It demonstrates how to create an agent with a custom tool and Google Search.
 """
 
 from datetime import datetime
-from dotenv import load_dotenv
 
+from dotenv import load_dotenv
 from google.adk.agents import Agent
 from google.adk.tools import google_search
 
@@ -27,10 +27,9 @@ root_agent = Agent(
     instruction="""
         You are a helpful assistant that can use the following tools:
         - google_search: Search the web""",
-    tools=[google_search],
-    # instruction="""
-    #     You are a helpful assistant that can use the following tools:
-    #     - get_current_time: Get the current time""",
-    # tools=[get_current_time],
-    # tools=[get_current_time, google_search], # ADK currently supports only one tool can be used at a time.
+    tools=[
+        google_search
+    ],  # ADK currently supports only one built-in tool for a single agent.
+    # tools=[get_current_time], # Custom tools.
+    # tools=[get_current_time, google_search], # Cannot mix custom tools with built-in tools.
 )
