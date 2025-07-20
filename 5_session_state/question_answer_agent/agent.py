@@ -1,7 +1,7 @@
 from google.adk.agents import Agent
 
 # Create the root agent
-question_answer_agent = Agent(
+root_agent = Agent(
     name="question_answer_agent",
     description="An agent that can answer questions.",
     model="gemini-2.0-flash",
