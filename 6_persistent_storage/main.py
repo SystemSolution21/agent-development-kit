@@ -2,15 +2,13 @@ import asyncio
 import uuid
 
 from dotenv import load_dotenv
-
 from google.adk.runners import Runner
 from google.adk.sessions import DatabaseSessionService
 from google.adk.sessions.base_session_service import ListSessionsResponse
 from google.adk.sessions.session import Session
-from google.genai import types
-
 from persistent_agent.agent import persistent_agent
-from utils import call_agent_async
+
+from .utils import call_agent_async
 
 # Load environment variables from .env file
 load_dotenv()
@@ -35,7 +33,6 @@ initial_state: dict = {
 
 # Main entrypoint
 async def main_async() -> None:
-
     # ===== Session Management =====
     # Get existing sessions for the user
     existing_sessions: ListSessionsResponse = await session_service.list_sessions(
