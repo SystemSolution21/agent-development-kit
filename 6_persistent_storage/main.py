@@ -1,32 +1,26 @@
 import asyncio
 import uuid
 
+import config  # Configuration
 from dotenv import load_dotenv
 from google.adk.runners import Runner
 from google.adk.sessions import DatabaseSessionService
 from google.adk.sessions.base_session_service import ListSessionsResponse
 from google.adk.sessions.session import Session
 from persistent_agent.agent import persistent_agent
-
-from .utils import call_agent_async
+from utility import call_agent_async
 
 # Load environment variables from .env file
 load_dotenv()
 
 
-# ===== Application constants =====
-APP_NAME: str = "Persistent Agent"
-USER_ID: str = "john_doe"
-
-
 # ===== Initialize Persistent Session Service =====
-db_url = "sqlite:///./my_agent_data.db"
-session_service = DatabaseSessionService(db_url=db_url)
+session_service = DatabaseSessionService(db_url=config.DB_URL)
 
 
 # ===== Define Initial State =====
 initial_state: dict = {
-    "user_name": "John Doe",
+    "user_name": config.USER_NAME,
     "reminders": [],
 }
 
@@ -36,8 +30,8 @@ async def main_async() -> None:
     # ===== Session Management =====
     # Get existing sessions for the user
     existing_sessions: ListSessionsResponse = await session_service.list_sessions(
-        app_name=APP_NAME,
-        user_id=USER_ID,
+        app_name=config.APP_NAME,
+        user_id=config.USER_ID,
     )
     # Check existing sessions
     if existing_sessions and len(existing_sessions.sessions) > 0:
@@ -47,8 +41,8 @@ async def main_async() -> None:
     else:
         # Create new session with initial state
         new_session: Session = await session_service.create_session(
-            app_name=APP_NAME,
-            user_id=USER_ID,
+            app_name=config.APP_NAME,
+            user_id=config.USER_ID,
             state=initial_state,
             session_id=str(object=uuid.uuid4()),
         )
@@ -57,13 +51,13 @@ async def main_async() -> None:
 
     # ===== Agent Runner Setup =====
     runner = Runner(
-        app_name=APP_NAME,
+        app_name=config.APP_NAME,
         agent=persistent_agent,
         session_service=session_service,
     )
 
     # ===== Interactive Conversation Loop =====
-    print("\nWelcome to Persistent Agent Chat!")
+    print(f"\nWelcome to {config.APP_NAME} Chat!")
     print("Your reminders will be remembered across conversations.")
     print("Type 'exit' or 'quit' to end the conversation.\n")
 
@@ -79,7 +73,7 @@ async def main_async() -> None:
         # process the user query
         await call_agent_async(
             runner=runner,
-            user_id=USER_ID,
+            user_id=config.USER_ID,
             session_id=SESSION_ID,
             query=user_input,
         )

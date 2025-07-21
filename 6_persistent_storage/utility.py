@@ -40,7 +40,7 @@ async def display_state(
         )
 
         # Format the output with clear sections
-        print(f"\n{'-' * 10} {label} {'-' * 10}")
+        print(f"\n{'-' * 10} {label} {'-' * 10}")  # Processing state
 
         # Handle user name
         user_name = session.state.get("user_name", "Unknown")
@@ -83,22 +83,26 @@ async def process_agent_response(event):
                     f"  Debug: Agent generated code:\n```python\n{part.executable_code.code}\n```"
                 )
                 has_specific_part = True
+
             elif hasattr(part, "code_execution_result") and part.code_execution_result:
                 # Access outcome and output correctly
                 print(
                     f"  Debug: Code Execution Result: {part.code_execution_result.outcome} - Output:\n{part.code_execution_result.output}"
                 )
                 has_specific_part = True
+
             elif hasattr(part, "tool_response") and part.tool_response:
                 # Print tool response information
                 print(f"  Tool Response: {part.tool_response.output}")
                 has_specific_part = True
+
             elif hasattr(part, "function_call") and part.function_call:
                 # Handle function call parts
                 print(
                     f"  Function Call: {part.function_call.name} with args: {part.function_call.args}"
                 )
                 has_specific_part = True
+
             # Also print any text parts found in any event for debugging
             elif hasattr(part, "text") and part.text and not part.text.isspace():
                 print(f"  Text: '{part.text.strip()}'")
